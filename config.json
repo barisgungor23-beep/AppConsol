@@ -1,31 +1,22 @@
 {
-  "cards": [
-    {
-      "id": "v11_live",
-      "type": "announcement",
-      "titleTR": "v1.1 Yayında",
-      "titleEN": "v1.1 is live",
-      "titleDE": "v1.1 ist da",
-      "titleFR": "v1.1 est disponible",
-      "titleES": "v1.1 ya disponible",
-      "messageTR": "ASO motoru · 5 dil",
-      "messageEN": "ASO engine · 5 languages",
-      "messageDE": "ASO-Engine · 5 Sprachen",
-      "messageFR": "Moteur ASO · 5 langues",
-      "messageES": "Motor ASO · 5 idiomas",
-      "icon": "sparkles",
-      "color": "purple",
-      "active": false,
-      "style": {
-        "size": "small",
-        "layout": "horizontal",
-        "bgColor": "purple",
-        "cornerRadius": 16,
-        "showMessage": true,
-        "animation": "none",
-        "showLiveLabel": true
-      }
-    },
+  "id": "live_badge",
+  "type": "announcement",
+  "titleTR": "CANLI",
+  "titleEN": "LIVE",
+  "messageTR": "",
+  "messageEN": "",
+  "icon": "antenna.radiowaves.left.and.right",
+  "color": "red",
+  "active": true,
+  "style": {
+    "size": "small",
+    "layout": "horizontal",
+    "bgColor": "red",
+    "cornerRadius": 16,
+    "showMessage": false,
+    "animation": "pulse"
+  }
+},
     {
       "id": "promo_1month",
       "type": "promo",
@@ -47,7 +38,7 @@
         "size": "medium",
         "layout": "horizontal",
         "bgColor": "pink",
-        "cornerRadius": 16,
+        "cornerRadius": 20,
         "showMessage": true,
         "animation": "shimmer",
         "showLiveLabel": true
