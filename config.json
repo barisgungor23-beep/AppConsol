@@ -15,14 +15,15 @@
       "messageES": "Motor ASO · 5 idiomas",
       "icon": "sparkles",
       "color": "purple",
-      "active": false,
+      "active": true,
       "style": {
         "size": "small",
         "layout": "horizontal",
         "bgColor": "purple",
         "cornerRadius": 16,
         "showMessage": true,
-        "animation": "none"
+        "animation": "none",
+        "showLiveLabel": true
       }
     },
     {
@@ -48,7 +49,8 @@
         "bgColor": "purple",
         "cornerRadius": 16,
         "showMessage": true,
-        "animation": "shimmer"
+        "animation": "shimmer",
+        "showLiveLabel": true
       }
     }
   ]
