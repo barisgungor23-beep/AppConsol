@@ -47,7 +47,32 @@
         "cornerRadius": 24,
         "showMessage": true,
         "animation": "shimmer",
-      }
+      {
+  "id": "thank_you",
+  "type": "announcement",
+  "titleTR": "Değerlisiniz",
+  "titleEN": "You matter",
+  "titleDE": "Danke",
+  "titleFR": "Merci",
+  "titleES": "Gracias",
+  "messageTR": "AppConsol'u tercih ettiğiniz için teşekkürler",
+  "messageEN": "Thank you for choosing AppConsol",
+  "messageDE": "Danke, dass Sie AppConsol verwenden",
+  "messageFR": "Merci d'utiliser AppConsol",
+  "messageES": "Gracias por usar AppConsol",
+  "icon": "heart.fill",
+  "color": "pink",
+  "active": true,
+  "style": {
+    "size": "medium",
+    "layout": "horizontal",
+    "bgColor": "pink",
+    "cornerRadius": 16,
+    "showMessage": true,
+    "animation": "pulse"
+  }
+}
+     } 
     }
   ]
 }
