@@ -45,7 +45,7 @@
       "style": {
         "size": "small",
         "layout": "horizontal",
-        "bgColor": "orange",
+        "bgColor": "purple",
         "cornerRadius": 16,
         "showMessage": true,
         "animation": "shimmer"
