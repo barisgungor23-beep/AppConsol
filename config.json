@@ -43,11 +43,10 @@
       "style": {
         "size": "medium",
         "layout": "horizontal",
-        "bgColor": "pink",
-        "cornerRadius": 20,
+        "bgColor": "red",
+        "cornerRadius": 24,
         "showMessage": true,
         "animation": "shimmer",
-        "showLiveLabel": true
       }
     }
   ]
