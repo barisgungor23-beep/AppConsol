@@ -1,50 +1,27 @@
 {
   "cards": [
     {
-      "id": "launch_v11",
+      "id": "v11_live",
       "type": "announcement",
-      "titleTR": "v1.1 Yayında!",
-      "titleEN": "v1.1 is live!",
-      "messageTR": "ASO Zekâ Motoru, Almanca/Fransızca/İspanyolca dil desteği ve daha hızlı yükleme ile güncellendi.",
-      "messageEN": "ASO Intelligence Engine, German/French/Spanish localization, and faster loading — all in this update.",
+      "titleTR": "v1.1 Yayında 🎉",
+      "titleEN": "v1.1 is live 🎉",
+      "messageTR": "ASO Zekâ Motoru, 5 dil desteği ve daha hızlı yükleme.",
+      "messageEN": "ASO Intelligence Engine, 5 languages, and faster loading.",
       "icon": "sparkles",
       "color": "purple",
-      "active": true
+      "active": false
     },
     {
       "id": "promo_1month",
       "type": "promo",
       "titleTR": "1 Aylık Ücretsiz Premium",
       "titleEN": "1 Month Free Premium",
-      "messageTR": "Tüm özellikleri ücretsiz dene. Kod: 1MONTH",
-      "messageEN": "Try all features free for a month. Code: 1MONTH",
+      "messageTR": "Tüm özellikleri ücretsiz dene — kod: 1MONTH",
+      "messageEN": "Try everything free for a month — code: 1MONTH",
       "icon": "gift.fill",
       "color": "orange",
       "code": "1MONTH",
       "active": true
-    },
-    {
-      "id": "tip_aso",
-      "type": "tip",
-      "titleTR": "ASO İpucu",
-      "titleEN": "ASO Tip",
-      "messageTR": "Başlığındaki kelimeleri anahtar kelime alanına ekleme — Apple zaten indexliyor.",
-      "messageEN": "Don't repeat title keywords in the keyword field — Apple already indexes them.",
-      "icon": "lightbulb.fill",
-      "color": "yellow",
-      "active": false
-    },
-    {
-      "id": "link_devto",
-      "type": "link",
-      "titleTR": "Nasıl yaptım?",
-      "titleEN": "How I built this",
-      "messageTR": "AppConsol'un perde arkasını anlattım — JWT, API, rejection hikayeleri.",
-      "messageEN": "The story behind AppConsol — JWT auth, API quirks, and App Store rejections.",
-      "icon": "doc.text.fill",
-      "color": "blue",
-      "url": "https://dev.to/YOUR_USERNAME/your-post-slug",
-      "active": false
     }
   ]
 }
