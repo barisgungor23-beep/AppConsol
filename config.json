@@ -11,12 +11,12 @@
       "color": "red",
       "active": true,
       "style": {
-        "size": "small",
+        "size": "medium",
         "layout": "horizontal",
         "bgColor": "red",
-        "cornerRadius": 16,
+        "cornerRadius": 20,
         "showMessage": false,
-        "animation": "pulse"
+        "animation": "shimmer"
       }
     },
     {
@@ -33,8 +33,8 @@
       "style": {
         "size": "medium",
         "layout": "horizontal",
-        "bgColor": "red",
-        "cornerRadius": 24,
+        "bgColor": "purple",
+        "cornerRadius": 20,
         "showMessage": true,
         "animation": "shimmer"
       }
@@ -48,14 +48,14 @@
       "messageEN": "Thank you for choosing AppConsol",
       "icon": "heart.fill",
       "color": "pink",
-      "active": true,
+      "active": false,
       "style": {
         "size": "medium",
         "layout": "horizontal",
         "bgColor": "pink",
-        "cornerRadius": 16,
+        "cornerRadius": 20,
         "showMessage": true,
-        "animation": "pulse"
+        "animation": "shimmer"
       }
     }
   ]
