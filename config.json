@@ -48,7 +48,7 @@
       "messageEN": "Thank you for choosing AppConsol",
       "icon": "heart.fill",
       "color": "pink",
-      "active": false,
+      "active": true,
       "style": {
         "size": "medium",
         "layout": "horizontal",
