@@ -15,7 +15,7 @@
       "messageES": "Motor ASO · 5 idiomas",
       "icon": "sparkles",
       "color": "purple",
-      "active": true,
+      "active": false,
       "style": {
         "size": "small",
         "layout": "horizontal",
@@ -44,9 +44,9 @@
       "code": "1MONTH",
       "active": true,
       "style": {
-        "size": "small",
+        "size": "medium",
         "layout": "horizontal",
-        "bgColor": "purple",
+        "bgColor": "pink",
         "cornerRadius": 16,
         "showMessage": true,
         "animation": "shimmer",
