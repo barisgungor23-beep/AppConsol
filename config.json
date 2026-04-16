@@ -1,41 +1,31 @@
 {
-  "id": "live_badge",
-  "type": "announcement",
-  "titleTR": "CANLI",
-  "titleEN": "LIVE",
-  "titleDE": "LIVE",
-  "titleFR": "LIVE",
-  "titleES": "LIVE",
-  "messageTR": "",
-  "messageEN": "",
-  "messageDE": "",
-  "messageFR": "",
-  "messageES": "",
-  "icon": "antenna.radiowaves.left.and.right",
-  "color": "red",
-  "active": true,
-  "style": {
-    "size": "small",
-    "layout": "horizontal",
-    "bgColor": "red",
-    "cornerRadius": 16,
-    "showMessage": false,
-    "animation": "pulse"
-  }
-},
+  "cards": [
+    {
+      "id": "live_badge",
+      "type": "announcement",
+      "titleTR": "CANLI",
+      "titleEN": "LIVE",
+      "messageTR": "",
+      "messageEN": "",
+      "icon": "antenna.radiowaves.left.and.right",
+      "color": "red",
+      "active": true,
+      "style": {
+        "size": "small",
+        "layout": "horizontal",
+        "bgColor": "red",
+        "cornerRadius": 16,
+        "showMessage": false,
+        "animation": "pulse"
+      }
+    },
     {
       "id": "promo_1month",
       "type": "promo",
       "titleTR": "1 Aylık Ücretsiz Premium",
       "titleEN": "1 Month Free Premium",
-      "titleDE": "1 Monat kostenlos",
-      "titleFR": "1 mois offert",
-      "titleES": "1 mes gratis",
       "messageTR": "Kod: 1MONTH",
       "messageEN": "Code: 1MONTH",
-      "messageDE": "Code: 1MONTH",
-      "messageFR": "Code : 1MONTH",
-      "messageES": "Código: 1MONTH",
       "icon": "gift.fill",
       "color": "purple",
       "code": "1MONTH",
@@ -46,33 +36,27 @@
         "bgColor": "red",
         "cornerRadius": 24,
         "showMessage": true,
-        "animation": "shimmer",
-      {
-  "id": "thank_you",
-  "type": "announcement",
-  "titleTR": "Değerlisiniz",
-  "titleEN": "You matter",
-  "titleDE": "Danke",
-  "titleFR": "Merci",
-  "titleES": "Gracias",
-  "messageTR": "AppConsol'u tercih ettiğiniz için teşekkürler",
-  "messageEN": "Thank you for choosing AppConsol",
-  "messageDE": "Danke, dass Sie AppConsol verwenden",
-  "messageFR": "Merci d'utiliser AppConsol",
-  "messageES": "Gracias por usar AppConsol",
-  "icon": "heart.fill",
-  "color": "pink",
-  "active": true,
-  "style": {
-    "size": "medium",
-    "layout": "horizontal",
-    "bgColor": "pink",
-    "cornerRadius": 16,
-    "showMessage": true,
-    "animation": "pulse"
-  }
-}
-     } 
+        "animation": "shimmer"
+      }
+    },
+    {
+      "id": "thank_you",
+      "type": "announcement",
+      "titleTR": "Değerlisiniz",
+      "titleEN": "You matter",
+      "messageTR": "AppConsol'u tercih ettiğiniz için teşekkürler",
+      "messageEN": "Thank you for choosing AppConsol",
+      "icon": "heart.fill",
+      "color": "pink",
+      "active": true,
+      "style": {
+        "size": "medium",
+        "layout": "horizontal",
+        "bgColor": "pink",
+        "cornerRadius": 16,
+        "showMessage": true,
+        "animation": "pulse"
+      }
     }
   ]
 }
