@@ -40,6 +40,26 @@
       }
     },
     {
+  "id": "collaboration",
+  "type": "link",
+  "titleTR": "Reklam & İşbirliği",
+  "titleEN": "Advertise & Collaborate",
+  "messageTR": "Bizimle iletişime geç",
+  "messageEN": "Get in touch with us",
+  "icon": "envelope.fill",
+  "color": "blue",
+  "url": "mailto:support.appconsol@gmail.com?subject=Reklam%20%26%20%C4%B0%C5%9Fbirli%C4%9Fi",
+  "active": true,
+  "style": {
+    "size": "medium",
+    "layout": "horizontal",
+    "bgColor": "blue",
+    "cornerRadius": 20,
+    "showMessage": true,
+    "animation": "none"
+  }
+},
+    {
       "id": "thank_you",
       "type": "announcement",
       "titleTR": "Değerlisiniz",
