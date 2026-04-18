@@ -1,1 +1,144 @@
 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AppConsol Developer Guides</title>
+<style>
+  :root {
+    --purple: #534AB7;
+    --purple-light: #EEEDFE;
+    --text: #1C1C1E;
+    --text-secondary: #6C6C70;
+    --border: #E5E5EA;
+    --bg: #F2F2F7;
+    --card: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; background: var(--bg); color: var(--text); }
+  .header { background: var(--purple); padding: 48px 24px 40px; text-align: center; }
+  .header h1 { color: white; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .header p { color: rgba(255,255,255,0.75); font-size: 15px; }
+  .lang-switch { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+  .lang-btn { padding: 6px 16px; border-radius: 20px; border: none; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+  .lang-btn.active { background: white; color: var(--purple); }
+  .lang-btn.inactive { background: rgba(255,255,255,0.2); color: white; }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px; }
+  .section-title { font-size: 13px; font-weight: 600; color: var(--text-secondary); letter-spacing: 0.05em; text-transform: uppercase; margin: 24px 0 12px; }
+  .card { background: var(--card); border-radius: 14px; padding: 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; border: 0.5px solid var(--border); }
+  .card:active { opacity: 0.7; }
+  .icon-wrap { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .icon-purple { background: var(--purple-light); }
+  .icon-blue { background: #E6F1FB; }
+  .icon-green { background: #EAF3DE; }
+  .icon-orange { background: #FAEEDA; }
+  .card-content { flex: 1; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+  .card-arrow { color: var(--text-secondary); font-size: 16px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; margin-top: 6px; }
+  .badge-new { background: #EAF3DE; color: #3B6D11; }
+  footer { text-align: center; padding: 32px 16px; color: var(--text-secondary); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Developer Guides</h1>
+  <p id="header-sub">Indie developer için ASO, Apple Ads ve uygulama geliştirme rehberleri</p>
+  <div class="lang-switch">
+    <button class="lang-btn active" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+    <button class="lang-btn inactive" onclick="setLang('en')">🇺🇸 English</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section-title" id="section-aso">ASO</div>
+
+  <a class="card" href="aso-score-tr.html" id="card-1">
+    <div class="icon-wrap icon-purple">📊</div>
+    <div class="card-content">
+      <div class="card-title" id="card-1-title">ASO Skorunu 10 Adımda Yükselt</div>
+      <div class="card-desc" id="card-1-desc">Metadata, keyword ve lokalizasyon stratejisiyle sıralamanda yüksel</div>
+      <span class="badge badge-new" id="badge-new">Yeni</span>
+    </div>
+    <span class="card-arrow">›</span>
+  </a>
+
+  <a class="card" href="screenshot-strategy-tr.html" id="card-2">
+    <div class="icon-wrap icon-blue">📱</div>
+    <div class="card-content">
+      <div class="card-title" id="card-2-title">Screenshot Stratejisi</div>
+      <div class="card-desc" id="card-2-desc">İlk 3 saniyede kullanıcıyı ikna eden görsel akış nasıl kurulur</div>
+    </div>
+    <span class="card-arrow">›</span>
+  </a>
+
+  <a class="card" href="keyword-research-tr.html" id="card-3">
+    <div class="icon-wrap icon-green">🔍</div>
+    <div class="card-content">
+      <div class="card-title" id="card-3-title">Keyword Araştırması</div>
+      <div class="card-desc" id="card-3-desc">Doğru anahtar kelimeleri bulmanın adım adım yöntemi</div>
+    </div>
+    <span class="card-arrow">›</span>
+  </a>
+
+  <a class="card" href="target-audience-tr.html" id="card-4">
+    <div class="icon-wrap icon-orange">🎯</div>
+    <div class="card-content">
+      <div class="card-title" id="card-4-title">Doğru Kitleyi Bulmak</div>
+      <div class="card-desc" id="card-4-desc">Uygulamanı gerçekten indirip kullanan kişileri nasıl tanırsın</div>
+    </div>
+    <span class="card-arrow">›</span>
+  </a>
+</div>
+
+<footer>AppConsol · <span id="footer-text">Indie developer için yapıldı</span></footer>
+
+<script>
+const content = {
+  tr: {
+    sub: "Indie developer için ASO, Apple Ads ve uygulama geliştirme rehberleri",
+    sectionASO: "ASO",
+    badgeNew: "Yeni",
+    footerText: "Indie developer için yapıldı",
+    cards: [
+      { title: "ASO Skorunu 10 Adımda Yükselt", desc: "Metadata, keyword ve lokalizasyon stratejisiyle sıralamanda yüksel", href: "aso-score-tr.html" },
+      { title: "Screenshot Stratejisi", desc: "İlk 3 saniyede kullanıcıyı ikna eden görsel akış nasıl kurulur", href: "screenshot-strategy-tr.html" },
+      { title: "Keyword Araştırması", desc: "Doğru anahtar kelimeleri bulmanın adım adım yöntemi", href: "keyword-research-tr.html" },
+      { title: "Doğru Kitleyi Bulmak", desc: "Uygulamanı gerçekten indirip kullanan kişileri nasıl tanırsın", href: "target-audience-tr.html" }
+    ]
+  },
+  en: {
+    sub: "ASO, Apple Ads, and app development guides for indie developers",
+    sectionASO: "ASO",
+    badgeNew: "New",
+    footerText: "Built for indie developers",
+    cards: [
+      { title: "Improve Your ASO Score in 10 Steps", desc: "Rank higher with the right metadata, keywords, and localization strategy", href: "aso-score-en.html" },
+      { title: "Screenshot Strategy", desc: "How to build a visual flow that convinces users in the first 3 seconds", href: "screenshot-strategy-en.html" },
+      { title: "Keyword Research", desc: "A step-by-step method to find the right keywords for your app", href: "keyword-research-en.html" },
+      { title: "Finding Your Target Audience", desc: "How to identify people who actually download and use your app", href: "target-audience-en.html" }
+    ]
+  }
+};
+
+function setLang(lang) {
+  const c = content[lang];
+  document.getElementById('header-sub').textContent = c.sub;
+  document.getElementById('section-aso').textContent = c.sectionASO;
+  document.getElementById('badge-new').textContent = c.badgeNew;
+  document.getElementById('footer-text').textContent = c.footerText;
+  document.querySelectorAll('.lang-btn').forEach((btn, i) => {
+    btn.className = 'lang-btn ' + (i === (lang === 'tr' ? 0 : 1) ? 'active' : 'inactive');
+  });
+  c.cards.forEach((card, i) => {
+    document.getElementById('card-' + (i+1) + '-title').textContent = card.title;
+    document.getElementById('card-' + (i+1) + '-desc').textContent = card.desc;
+    document.getElementById('card-' + (i+1)).href = card.href;
+  });
+}
+</script>
+</body>
+</html>
