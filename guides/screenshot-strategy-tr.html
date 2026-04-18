@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screenshot Stratejisi · AppConsol</title>
+<style>
+  :root { --blue: #185FA5; --blue-light: #E6F1FB; --text: #1C1C1E; --text-secondary: #6C6C70; --border: #E5E5EA; --bg: #F2F2F7; --card: #FFFFFF; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; background: var(--bg); color: var(--text); }
+  .header { background: var(--blue); padding: 48px 24px 32px; }
+  .back { color: rgba(255,255,255,0.8); font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 16px; }
+  .header h1 { color: white; font-size: 24px; font-weight: 700; line-height: 1.3; }
+  .header .meta { color: rgba(255,255,255,0.65); font-size: 13px; margin-top: 8px; }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+  .card { background: var(--card); border-radius: 14px; padding: 18px; margin-bottom: 12px; border: 0.5px solid var(--border); }
+  .step-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: var(--blue-light); color: var(--blue); border-radius: 8px; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .step-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .step-body { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .step-body strong { color: var(--text); font-weight: 600; }
+  .tip { background: var(--blue-light); border-radius: 10px; padding: 12px 14px; margin-top: 10px; font-size: 13px; color: var(--blue); line-height: 1.5; }
+  .tip::before { content: "💡 "; }
+  .intro { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+  h2 { font-size: 18px; font-weight: 700; margin: 28px 0 14px; }
+  .warning { background: #FFF8E1; border-radius: 10px; padding: 12px 14px; font-size: 13px; color: #795548; line-height: 1.5; margin-top: 10px; }
+  .warning::before { content: "⚠️ "; }
+  .spec-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+  .spec-table th { text-align: left; padding: 8px 10px; background: var(--bg); color: var(--text-secondary); font-weight: 600; }
+  .spec-table td { padding: 8px 10px; border-top: 0.5px solid var(--border); }
+  footer { text-align: center; padding: 24px 16px; color: var(--text-secondary); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index.html">‹ Rehberler</a>
+  <h1>Screenshot Stratejisi</h1>
+  <div class="meta">App Store Optimizasyonu · Nisan 2026</div>
+</div>
+
+<div class="container">
+  <p class="intro">App Store kullanıcılarının %70'i uygulama sayfasını açmadan önce arama sonuçlarındaki ilk 1-3 screenshot'a bakarak karar veriyor. Bu görseller, uygulama açıklamanızdan çok daha fazla etkiye sahip.</p>
+
+  <h2>Teknik Gereksinimler</h2>
+
+  <div class="card">
+    <div class="step-title">2026 için doğru screenshot boyutları</div>
+    <div class="step-body">
+      Apple 2026 itibarıyla işleri kolaylaştırdı — artık her cihaz için ayrı boyut hazırlamana gerek yok.
+      <table class="spec-table">
+        <tr><th>Cihaz</th><th>Boyut</th></tr>
+        <tr><td>iPhone (6.9")</td><td>1320 × 2868 px</td></tr>
+        <tr><td>iPhone (6.7")</td><td>1290 × 2796 px</td></tr>
+        <tr><td>iPad (13")</td><td>2064 × 2752 px</td></tr>
+      </table>
+      <div class="tip">6.9" boyutunu yüklersen Apple diğer cihazlar için otomatik ölçeklendirir. En az bu boyutu yükle.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-title">Teknik kurallar</div>
+    <div class="step-body">
+      • Format: PNG (tercih edilen) veya JPG<br>
+      • Renk uzayı: RGB, şeffaflık (alpha) yok<br>
+      • Her lokalizasyon için maksimum 10 screenshot<br>
+      • Portrait uygulamalar için portrait, landscape için landscape<br>
+      • Boyutu tam piksel olarak gir — Apple yaklaşık değerleri reddediyor
+      <div class="warning">Screenshot'larda fiyat bilgisi (%0.99, "Ücretsiz" vb.) kullanma — bölgeye göre değiştiği için Apple reddedebilir.</div>
+    </div>
+  </div>
+
+  <h2>İçerik Stratejisi</h2>
+
+  <div class="card">
+    <div class="step-num">1</div>
+    <div class="step-title">İlk screenshot en güçlü mesajını taşımalı</div>
+    <div class="step-body">
+      Arama sonuçlarında genellikle sadece ilk screenshot görünür. Bu görselin tek başına şunu anlatması gerekiyor: <strong>"Bu uygulama ne yapar ve neden işime yarar?"</strong><br><br>
+      Soru formatı etkili çalışıyor: <strong>"Uygulamanın bugün kaç para kazandı?"</strong>
+      <div class="tip">Kullanıcı uygulamayı indirmeden karar verir. İlk screenshot o kararı veriyor.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">2</div>
+    <div class="step-title">Sorun → Çözüm → Fayda akışını uygula</div>
+    <div class="step-body">
+      En iyi dönüştüren screenshot akışı bir mini hikaye anlatır:<br><br>
+      <strong>1. Screenshot:</strong> Kullanıcının acı noktası (soru formu)<br>
+      <strong>2. Screenshot:</strong> Uygulamanın çözümü<br>
+      <strong>3. Screenshot:</strong> Somut fayda veya sonuç<br>
+      <strong>4-5. Screenshot:</strong> Destekleyici özellikler<br><br>
+      Her screenshot bir öncekinin üzerine inşa eder.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">3</div>
+    <div class="step-title">Gerçek uygulama arayüzünü göster</div>
+    <div class="step-body">
+      Apple'ın temel kuralı: <strong>screenshot'lar uygulamayı doğru temsil etmeli.</strong><br><br>
+      • Gerçek uygulama arayüzünü göster — konsept tasarım değil<br>
+      • Screenshot'larda gördüğün özellik uygulamada olmalı<br>
+      • IAP arkasındaki özellikleri gösteriyorsan bunu belirt<br>
+      • Metin overlayleri ve cihaz çerçeveleri kullanabilirsin — Apple buna izin veriyor
+      <div class="warning">Uygulamayı güncelleyince screenshot'ları da güncelle. Eski ekranları gösteren screenshot'lar ret sebebi olabiliyor.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">4</div>
+    <div class="step-title">Metni okunabilir ve kısa tut</div>
+    <div class="step-body">
+      Screenshot'lar arama sonuçlarında küçük görünür. Metin:<br><br>
+      • Büyük ve okunabilir olmalı (arama sonuçlarında küçültülmüş halini test et)<br>
+      • Başlık maksimum 4-5 kelime<br>
+      • Alt metin varsa maksimum 1 satır<br>
+      • Beyaz veya açık arka plan üzerine koyu, koyu arka plan üzerine beyaz
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">5</div>
+    <div class="step-title">Her lokalizasyon için screenshot'ları çevir</div>
+    <div class="step-body">
+      Türkçe description yazıp İngilizce screenshot bırakmak dönüşümü olumsuz etkiler. Apple da bunu düşük çaba olarak değerlendiriyor.<br><br>
+      En azından ilk 3 screenshot'taki metin localizedolmalı.
+      <div class="tip">Screenshot metinlerini baştan lokalizasyon gözetilerek yaz — sonradan çevirmek daha zor.</div>
+    </div>
+  </div>
+
+  <h2>Sık Yapılan Hatalar</h2>
+
+  <div class="card">
+    <div class="step-title">Bunları yapma</div>
+    <div class="step-body">
+      • <strong>Fiyat bilgisi eklemek:</strong> "$0.99" veya "Ücretsiz" — bölgeye göre değiştiği için ret sebebi<br><br>
+      • <strong>"#1" veya "En iyi" iddiası:</strong> Kanıtlanmamış superlative ifadeler Apple tarafından reddediliyor<br><br>
+      • <strong>Ham ekran görüntüsü:</strong> Arka plan, cihaz çerçevesi ve metin olmadan yüklenen screenshot'lar dönüşüm sağlamıyor<br><br>
+      • <strong>Tüm ekranlarda aynı tasarım:</strong> Her screenshot farklı bir değer önerisi sunmalı<br><br>
+      • <strong>Güncelleme sonrası screenshot'u güncellememek:</strong> En yaygın ret sebeplerinden biri
+    </div>
+  </div>
+
+</div>
+
+<footer>AppConsol Developer Guides · appconsolapp.com</footer>
+</body>
+</html>
