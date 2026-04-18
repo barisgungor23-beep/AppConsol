@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finding Your Target Audience · AppConsol</title>
+<style>
+  :root { --orange: #854F0B; --orange-light: #FAEEDA; --text: #1C1C1E; --text-secondary: #6C6C70; --border: #E5E5EA; --bg: #F2F2F7; --card: #FFFFFF; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; background: var(--bg); color: var(--text); }
+  .header { background: var(--orange); padding: 48px 24px 32px; }
+  .back { color: rgba(255,255,255,0.8); font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 16px; }
+  .header h1 { color: white; font-size: 24px; font-weight: 700; line-height: 1.3; }
+  .header .meta { color: rgba(255,255,255,0.65); font-size: 13px; margin-top: 8px; }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+  .card { background: var(--card); border-radius: 14px; padding: 18px; margin-bottom: 12px; border: 0.5px solid var(--border); }
+  .step-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: var(--orange-light); color: var(--orange); border-radius: 8px; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .step-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .step-body { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .step-body strong { color: var(--text); font-weight: 600; }
+  .tip { background: var(--orange-light); border-radius: 10px; padding: 12px 14px; margin-top: 10px; font-size: 13px; color: var(--orange); line-height: 1.5; }
+  .tip::before { content: "💡 "; }
+  .intro { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+  h2 { font-size: 18px; font-weight: 700; margin: 28px 0 14px; }
+  .warning { background: #FFF8E1; border-radius: 10px; padding: 12px 14px; font-size: 13px; color: #795548; line-height: 1.5; margin-top: 10px; }
+  .warning::before { content: "⚠️ "; }
+  footer { text-align: center; padding: 24px 16px; color: var(--text-secondary); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index.html">‹ Guides</a>
+  <h1>Finding Your Target Audience</h1>
+  <div class="meta">Growth Strategy · April 2026</div>
+</div>
+
+<div class="container">
+  <p class="intro">Download count isn't the only growth metric. Understanding who actually uses, pays for, and recommends your app is the foundation of every ASO and marketing decision.</p>
+
+  <h2>Know Your Audience</h2>
+
+  <div class="card">
+    <div class="step-num">1</div>
+    <div class="step-title">Look at your existing users</div>
+    <div class="step-body">
+      The most reliable data source is already with you — App Store Connect:<br><br>
+      <strong>Sales and Trends:</strong> Which countries are downloading?<br>
+      <strong>Country breakdown:</strong> Where is your most active market?<br>
+      <strong>Paying users:</strong> Which market generates revenue?<br><br>
+      The country that downloads most and the country that pays most may not be the same — analyze them separately.
+      <div class="tip">In AppConsol, the country breakdown and revenue efficiency views show you which markets are delivering the most value.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">2</div>
+    <div class="step-title">Build a profile from your reviews</div>
+    <div class="step-body">
+      App Store reviews are free user research. When reading reviews, notice:<br><br>
+      • <strong>What do they praise?</strong> Which feature gets mentioned most?<br>
+      • <strong>Who complains?</strong> Which problem comes up repeatedly?<br>
+      • <strong>What language do they use?</strong> These phrases can become keywords<br>
+      • <strong>Why did they download it?</strong> That's your real use case
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">3</div>
+    <div class="step-title">Find out which keywords brought them</div>
+    <div class="step-body">
+      App Store Connect → Analytics → Acquisition → Source Type → App Store Search<br><br>
+      You can see which search terms led to downloads. This data:<br><br>
+      • Shows what users are actually searching for<br>
+      • Reveals which keywords convert<br>
+      • Lets you update your metadata strategy with real evidence
+      <div class="tip">High impressions but low conversion means either your screenshots are targeting the wrong audience, or the app doesn't match expectations.</div>
+    </div>
+  </div>
+
+  <h2>Grow Your Audience</h2>
+
+  <div class="card">
+    <div class="step-num">4</div>
+    <div class="step-title">Define your user profile</div>
+    <div class="step-body">
+      Build a user profile from your data:<br><br>
+      <strong>Who?</strong> Age, occupation, technical level<br>
+      <strong>Where?</strong> Geographic distribution<br>
+      <strong>When?</strong> Which hours, which days are they active<br>
+      <strong>Why?</strong> Which problem are they solving<br>
+      <strong>How?</strong> Which feature do they use most<br><br>
+      This profile guides your keyword choices, screenshot design, and description.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">5</div>
+    <div class="step-title">Reach users of similar apps</div>
+    <div class="step-body">
+      With Apple Search Ads, you can target competitor app categories. These users:<br><br>
+      • Are already active in this category<br>
+      • Are using another solution but may be dissatisfied<br>
+      • Have the problem you solve<br><br>
+      Bidding on competitor keywords is the fastest way to reach an audience you don't need to capture organically.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">6</div>
+    <div class="step-title">Find where your best users come from</div>
+    <div class="step-body">
+      Look at your paying or most active users — if they share common characteristics, target new people with those same traits.<br><br>
+      Questions to ask:<br>
+      • Which country are they from?<br>
+      • Which keyword did they use to find you?<br>
+      • Which feature did they use first?<br>
+      • How quickly did they convert to premium?<br><br>
+      These patterns are the most valuable input to your growth strategy.
+      <div class="tip">Users who convert to premium in the first week are telling you what your app's highest-value moment is. Focus on that moment.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">7</div>
+    <div class="step-title">Enter new markets through localization</div>
+    <div class="step-body">
+      If data shows you're getting organic downloads from a new market but you have no metadata in that language:<br><br>
+      Downloads exist → Localize → Visibility increases → More downloads<br><br>
+      Localization isn't just translation — you also need to research how users in that market search.
+      <div class="warning">Poor translation can be worse than no translation. Rather than rushing with machine translation, properly localize your core metadata: title, subtitle, and keywords.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>AppConsol Developer Guides · appconsolapp.com</footer>
+</body>
+</html>
