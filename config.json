@@ -2,7 +2,7 @@
   "cards": [
     {
       "id": "live_badge",
-      "type": "status",
+      "type": "announcement",
       "titleTR": "CANLI",
       "titleEN": "LIVE",
       "messageTR": "",
@@ -11,23 +11,19 @@
       "color": "red",
       "active": true,
       "style": {
-        "size": "badge",
+        "size": "small",
         "layout": "horizontal",
-        "bgStyle": "solid",
         "bgColor": "red",
-        "cornerRadius": 999,
+        "cornerRadius": 30,
         "showMessage": false,
-        "animation": "shimmer",
-        "shadow": "none",
-        "padding": "compact",
-        "priority": 1
+        "animation": "shimmer"
       }
     },
     {
       "id": "promo_1month",
       "type": "promo",
       "titleTR": "1 Ay Premium Hediye",
-      "titleEN": "1 Month of Premium",
+      "titleEN": "1 Month Free Premium",
       "messageTR": "Kodunuzu kullanın: 1MONTH",
       "messageEN": "Use code: 1MONTH",
       "icon": "gift.fill",
@@ -35,87 +31,71 @@
       "code": "1MONTH",
       "active": true,
       "style": {
-        "size": "feature",
+        "size": "medium",
         "layout": "horizontal",
-        "bgStyle": "gradient",
         "bgColor": "purple",
         "cornerRadius": 24,
         "showMessage": true,
-        "animation": "subtlePulse",
-        "shadow": "soft",
-        "padding": "comfortable",
-        "priority": 2
+        "animation": "shimmer"
       }
     },
     {
       "id": "developer_guides",
       "type": "link",
-      "titleTR": "Geliştirici Rehberleri",
-      "titleEN": "Developer Guides",
-      "messageTR": "ASO, Apple Ads ve uygulama büyütme rehberleri",
-      "messageEN": "ASO, Apple Ads, and app growth guides",
+      "titleTR": "Geliştirici Rehberi",
+      "titleEN": "Developer Guide",
+      "messageTR": "ASO, Apple Ads ve uygulama geliştirme içerikleri",
+      "messageEN": "ASO, Apple Ads, and app development guides",
       "icon": "book.fill",
       "color": "teal",
       "url": "https://barisgungor23-beep.github.io/AppConsol/guides/",
       "active": true,
       "style": {
-        "size": "hero",
+        "size": "medium",
         "layout": "horizontal",
-        "bgStyle": "softTint",
         "bgColor": "teal",
         "cornerRadius": 24,
         "showMessage": true,
-        "animation": "none",
-        "shadow": "soft",
-        "padding": "comfortable",
-        "priority": 3
+        "animation": "none"
       }
     },
     {
       "id": "collaboration",
       "type": "link",
-      "titleTR": "İşbirliği",
-      "titleEN": "Partnerships",
-      "messageTR": "Reklam ve ortaklık için bize ulaşın",
-      "messageEN": "For advertising and partnerships",
+      "titleTR": "İşbirliği & Reklam",
+      "titleEN": "Advertise & Collaborate",
+      "messageTR": "Bizimle iletişime geçin",
+      "messageEN": "Get in touch with us",
       "icon": "envelope.fill",
       "color": "blue",
       "url": "mailto:support.appconsol@gmail.com?subject=Reklam%20%26%20%C4%B0%C5%9Fbirli%C4%9Fi",
       "active": true,
       "style": {
-        "size": "feature",
+        "size": "small",
         "layout": "horizontal",
-        "bgStyle": "solid",
         "bgColor": "blue",
-        "cornerRadius": 22,
+        "cornerRadius": 20,
         "showMessage": true,
-        "animation": "none",
-        "shadow": "soft",
-        "padding": "comfortable",
-        "priority": 4
+        "animation": "none"
       }
     },
     {
       "id": "thank_you",
       "type": "announcement",
       "titleTR": "İyi ki varsınız",
-      "titleEN": "Glad you're here",
+      "titleEN": "You matter",
       "messageTR": "AppConsol'u kullandığınız için teşekkür ederiz",
-      "messageEN": "Thanks for being part of AppConsol",
+      "messageEN": "Thank you for being with AppConsol",
       "icon": "heart.fill",
-      "color": "neutral",
+      "color": "pink",
       "active": true,
       "style": {
-        "size": "compact",
+        "size": "small",
         "layout": "horizontal",
-        "bgStyle": "softTint",
-        "bgColor": "neutral",
+        "bgColor": "pink",
         "cornerRadius": 20,
         "showMessage": true,
-        "animation": "none",
-        "shadow": "none",
-        "padding": "comfortable",
-        "priority": 5
+        "animation": "none"
       }
     }
   ]
