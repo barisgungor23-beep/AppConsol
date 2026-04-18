@@ -88,7 +88,7 @@
   "icon": "book.fill",
   "color": "teal",
   "url": "https://barisgungor23-beep.github.io/AppConsol/guides",
-  "active": true,
+  "active": false,
   "style": {
     "size": "medium",
     "layout": "horizontal",
