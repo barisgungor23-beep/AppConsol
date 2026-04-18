@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doğru Kitleyi Bulmak · AppConsol</title>
+<style>
+  :root { --orange: #854F0B; --orange-light: #FAEEDA; --text: #1C1C1E; --text-secondary: #6C6C70; --border: #E5E5EA; --bg: #F2F2F7; --card: #FFFFFF; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; background: var(--bg); color: var(--text); }
+  .header { background: var(--orange); padding: 48px 24px 32px; }
+  .back { color: rgba(255,255,255,0.8); font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 16px; }
+  .header h1 { color: white; font-size: 24px; font-weight: 700; line-height: 1.3; }
+  .header .meta { color: rgba(255,255,255,0.65); font-size: 13px; margin-top: 8px; }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+  .card { background: var(--card); border-radius: 14px; padding: 18px; margin-bottom: 12px; border: 0.5px solid var(--border); }
+  .step-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: var(--orange-light); color: var(--orange); border-radius: 8px; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .step-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .step-body { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .step-body strong { color: var(--text); font-weight: 600; }
+  .tip { background: var(--orange-light); border-radius: 10px; padding: 12px 14px; margin-top: 10px; font-size: 13px; color: var(--orange); line-height: 1.5; }
+  .tip::before { content: "💡 "; }
+  .intro { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+  h2 { font-size: 18px; font-weight: 700; margin: 28px 0 14px; }
+  .warning { background: #FFF8E1; border-radius: 10px; padding: 12px 14px; font-size: 13px; color: #795548; line-height: 1.5; margin-top: 10px; }
+  .warning::before { content: "⚠️ "; }
+  footer { text-align: center; padding: 24px 16px; color: var(--text-secondary); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index.html">‹ Rehberler</a>
+  <h1>Doğru Kitleyi Bulmak</h1>
+  <div class="meta">Büyüme Stratejisi · Nisan 2026</div>
+</div>
+
+<div class="container">
+  <p class="intro">İndirme sayısı büyümenin tek göstergesi değil. Uygulamanı gerçekten kullanan, ödeme yapan ve tavsiye eden kişileri tanımak — tüm ASO ve pazarlama kararlarının temelidir.</p>
+
+  <h2>Kitleni Tanı</h2>
+
+  <div class="card">
+    <div class="step-num">1</div>
+    <div class="step-title">Mevcut kullanıcılarına bak</div>
+    <div class="step-body">
+      En güvenilir veri kaynağı zaten sende — App Store Connect:<br><br>
+      <strong>Sales ve Trends:</strong> Hangi ülkelerden indirme geliyor?<br>
+      <strong>Ülke bazlı dağılım:</strong> En aktif pazarın neresi?<br>
+      <strong>Ödeme yapanlar:</strong> Hangi pazardan gelir geliyor?<br><br>
+      İndirme yapan ülke ile ödeme yapan ülke aynı olmayabilir — ikisini ayrı analiz et.
+      <div class="tip">AppConsol'da country breakdown ve revenue efficiency görüntüleyerek hangi pazarın sana en çok değer kattığını görebilirsin.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">2</div>
+    <div class="step-title">Yorumlardan profil çıkar</div>
+    <div class="step-body">
+      App Store yorumları ücretsiz kullanıcı araştırmasıdır. Yorumları okurken şunlara dikkat et:<br><br>
+      • <strong>Kimi övüyorlar?</strong> Hangi özellik en çok bahsediliyor?<br>
+      • <strong>Kim şikâyet ediyor?</strong> Hangi sorun tekrar ediyor?<br>
+      • <strong>Nasıl bir dil kullanıyorlar?</strong> Bu ifadeleri keyword olarak kullanabilirsin<br>
+      • <strong>Neden indirdiklerini söylüyorlar?</strong> Gerçek kullanım senaryosu bu
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">3</div>
+    <div class="step-title">Hangi keyword'lerden geliyorlar?</div>
+    <div class="step-body">
+      App Store Connect → Analytics → Acquisition → Source Type → App Store Search<br><br>
+      Hangi arama terimlerinden indirme geldiğini görebilirsin. Bu veriler:<br><br>
+      • Kullanıcıların gerçekte ne aradığını gösterir<br>
+      • Hangi keyword'lerin dönüşüm sağladığını ortaya koyar<br>
+      • Metadata stratejini veriye dayalı güncellemeni sağlar
+      <div class="tip">Yüksek impression ama düşük dönüşüm — ya screenshot yanlış kitleyi hedefliyor ya da uygulama beklentiyi karşılamıyor.</div>
+    </div>
+  </div>
+
+  <h2>Kitleni Büyüt</h2>
+
+  <div class="card">
+    <div class="step-num">4</div>
+    <div class="step-title">Kullanıcı profilini tanımla</div>
+    <div class="step-body">
+      Elindeki verilerden bir kullanıcı profili oluştur:<br><br>
+      <strong>Kim?</strong> Yaş, meslek, teknik seviye<br>
+      <strong>Nerede?</strong> Coğrafi dağılım<br>
+      <strong>Ne zaman?</strong> Hangi saatler, hangi günler aktif<br>
+      <strong>Neden?</strong> Hangi sorunu çözüyor<br>
+      <strong>Nasıl?</strong> Hangi özelliği en çok kullanıyor<br><br>
+      Bu profil; keyword seçimini, screenshot tasarımını ve description'ı yönlendirir.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">5</div>
+    <div class="step-title">Benzer uygulamaların kullanıcılarına ulaş</div>
+    <div class="step-body">
+      Apple Search Ads'de rakip uygulama kategorilerini hedefleyebilirsin. Bu kullanıcılar:<br><br>
+      • Zaten bu kategoride aktif<br>
+      • Başka bir çözüm kullanıyor ama memnun olmayabilir<br>
+      • Senin çözdüğün problemi yaşıyor<br><br>
+      Rakip keyword'leri bid etmek, organik olarak yakalamak zorunda olmadığın kitleye ulaşmanın en hızlı yolu.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">6</div>
+    <div class="step-title">En iyi kullanıcıların nerede takıldığını bul</div>
+    <div class="step-body">
+      Ödeme yapan veya en çok kullanan kullanıcılarını incele — bu kişilerin ortak özellikleri varsa, o özellikleri taşıyan yeni kişileri hedeflemelisin.<br><br>
+      Sorular:<br>
+      • Hangi ülkeden geliyorlar?<br>
+      • Hangi keyword'den indirdiler?<br>
+      • Hangi özelliği ilk kullandılar?<br>
+      • Ne kadar hızlı premium'a geçtiler?<br><br>
+      Bu kalıplar, büyüme stratejinin en değerli girdisi.
+      <div class="tip">İlk hafta premium'a geçen kullanıcılar sana uygulamanın en değerli anını anlatıyor. O ana odaklan.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">7</div>
+    <div class="step-title">Lokalizasyonla yeni pazarlara gir</div>
+    <div class="step-body">
+      Veri gösteriyorsa yeni bir pazardan organik indirme alıyorsun ama o dilde metadata yoksa:<br><br>
+      O pazardan indirme var → Lokalize et → Görünürlük artar → Daha fazla indirme<br><br>
+      Lokalizasyon sadece çeviri değil — o pazardaki kullanıcıların arama alışkanlıklarını da araştırman gerekiyor.
+      <div class="warning">Kötü çeviri hiç çeviriden daha zararlı olabilir. Makine çevirisiyle hızlı geçmek yerine, temel metadata'yı (başlık, alt başlık, keyword) doğru lokalize et.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>AppConsol Developer Guides · appconsolapp.com</footer>
+</body>
+</html>
