@@ -11,7 +11,7 @@
       "color": "red",
       "active": true,
       "style": {
-        "size": "small",
+        "size": "medium",
         "layout": "horizontal",
         "bgColor": "red",
         "cornerRadius": 24,
@@ -30,7 +30,7 @@
       "color": "pink",
       "active": true,
       "style": {
-        "size": "medium",
+        "size": "small",
         "layout": "horizontal",
         "bgColor": "pink",
         "cornerRadius": 20,
@@ -50,7 +50,7 @@
       "code": "1MONTH",
       "active": true,
       "style": {
-        "size": "medium",
+        "size": "small",
         "layout": "horizontal",
         "bgColor": "purple",
         "cornerRadius": 20,
@@ -68,9 +68,9 @@
       "icon": "book.fill",
       "color": "teal",
       "url": "https://barisgungor23-beep.github.io/AppConsol/guides/",
-      "active": false,
+      "active": true,
       "style": {
-        "size": "medium",
+        "size": "small",
         "layout": "horizontal",
         "bgColor": "teal",
         "cornerRadius": 20,
@@ -90,7 +90,7 @@
       "url": "mailto:support.appconsol@gmail.com?subject=Reklam%20%26%20%C4%B0%C5%9Fbirli%C4%9Fi",
       "active": true,
       "style": {
-        "size": "medium",
+        "size": "small",
         "layout": "horizontal",
         "bgColor": "blue",
         "cornerRadius": 20,
