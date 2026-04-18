@@ -2,7 +2,7 @@
   "cards": [
     {
       "id": "live_badge",
-      "type": "announcement",
+      "type": "status",
       "titleTR": "CANLI",
       "titleEN": "LIVE",
       "messageTR": "",
@@ -11,91 +11,111 @@
       "color": "red",
       "active": true,
       "style": {
-        "size": "medium",
+        "size": "badge",
         "layout": "horizontal",
+        "bgStyle": "solid",
         "bgColor": "red",
-        "cornerRadius": 24,
+        "cornerRadius": 999,
         "showMessage": false,
-        "animation": "shimmer"
-      }
-    },
-    {
-      "id": "thank_you",
-      "type": "announcement",
-      "titleTR": "Değerlisiniz",
-      "titleEN": "You matter",
-      "messageTR": "AppConsol'u tercih ettiğiniz için teşekkürler",
-      "messageEN": "Thank you for choosing AppConsol",
-      "icon": "heart.fill",
-      "color": "pink",
-      "active": true,
-      "style": {
-        "size": "small",
-        "layout": "horizontal",
-        "bgColor": "pink",
-        "cornerRadius": 20,
-        "showMessage": true,
-        "animation": "shimmer"
+        "animation": "shimmer",
+        "shadow": "none",
+        "padding": "compact",
+        "priority": 1
       }
     },
     {
       "id": "promo_1month",
       "type": "promo",
-      "titleTR": "1 Aylık Ücretsiz Premium",
-      "titleEN": "1 Month Free Premium",
-      "messageTR": "Kod: 1MONTH",
-      "messageEN": "Code: 1MONTH",
+      "titleTR": "1 Ay Premium Hediye",
+      "titleEN": "1 Month of Premium",
+      "messageTR": "Kodunuzu kullanın: 1MONTH",
+      "messageEN": "Use code: 1MONTH",
       "icon": "gift.fill",
       "color": "purple",
       "code": "1MONTH",
       "active": true,
       "style": {
-        "size": "small",
+        "size": "feature",
         "layout": "horizontal",
+        "bgStyle": "gradient",
         "bgColor": "purple",
-        "cornerRadius": 20,
+        "cornerRadius": 24,
         "showMessage": true,
-        "animation": "shimmer"
+        "animation": "subtlePulse",
+        "shadow": "soft",
+        "padding": "comfortable",
+        "priority": 2
       }
     },
     {
       "id": "developer_guides",
       "type": "link",
-      "titleTR": "Developer Guide",
-      "titleEN": "Developer Guide",
-      "messageTR": "ASO, Apple Ads, uygulama geliştirme rehberleri",
-      "messageEN": "ASO, Apple Ads, app development guides",
+      "titleTR": "Geliştirici Rehberleri",
+      "titleEN": "Developer Guides",
+      "messageTR": "ASO, Apple Ads ve uygulama büyütme rehberleri",
+      "messageEN": "ASO, Apple Ads, and app growth guides",
       "icon": "book.fill",
       "color": "teal",
       "url": "https://barisgungor23-beep.github.io/AppConsol/guides/",
       "active": true,
       "style": {
-        "size": "small",
+        "size": "hero",
         "layout": "horizontal",
+        "bgStyle": "softTint",
         "bgColor": "teal",
-        "cornerRadius": 20,
+        "cornerRadius": 24,
         "showMessage": true,
-        "animation": "none"
+        "animation": "none",
+        "shadow": "soft",
+        "padding": "comfortable",
+        "priority": 3
       }
     },
     {
       "id": "collaboration",
       "type": "link",
-      "titleTR": "Reklam & İşbirliği",
-      "titleEN": "Advertise & Collaborate",
-      "messageTR": "Bizimle iletişime geç",
-      "messageEN": "Get in touch with us",
+      "titleTR": "İşbirliği",
+      "titleEN": "Partnerships",
+      "messageTR": "Reklam ve ortaklık için bize ulaşın",
+      "messageEN": "For advertising and partnerships",
       "icon": "envelope.fill",
       "color": "blue",
       "url": "mailto:support.appconsol@gmail.com?subject=Reklam%20%26%20%C4%B0%C5%9Fbirli%C4%9Fi",
       "active": true,
       "style": {
-        "size": "small",
+        "size": "feature",
         "layout": "horizontal",
+        "bgStyle": "solid",
         "bgColor": "blue",
+        "cornerRadius": 22,
+        "showMessage": true,
+        "animation": "none",
+        "shadow": "soft",
+        "padding": "comfortable",
+        "priority": 4
+      }
+    },
+    {
+      "id": "thank_you",
+      "type": "announcement",
+      "titleTR": "İyi ki varsınız",
+      "titleEN": "Glad you're here",
+      "messageTR": "AppConsol'u kullandığınız için teşekkür ederiz",
+      "messageEN": "Thanks for being part of AppConsol",
+      "icon": "heart.fill",
+      "color": "neutral",
+      "active": true,
+      "style": {
+        "size": "compact",
+        "layout": "horizontal",
+        "bgStyle": "softTint",
+        "bgColor": "neutral",
         "cornerRadius": 20,
         "showMessage": true,
-        "animation": "none"
+        "animation": "none",
+        "shadow": "none",
+        "padding": "comfortable",
+        "priority": 5
       }
     }
   ]
