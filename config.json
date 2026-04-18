@@ -40,25 +40,45 @@
       }
     },
     {
-  "id": "collaboration",
-  "type": "link",
-  "titleTR": "Reklam & İşbirliği",
-  "titleEN": "Advertise & Collaborate",
-  "messageTR": "Bizimle iletişime geç",
-  "messageEN": "Get in touch with us",
-  "icon": "envelope.fill",
-  "color": "blue",
-  "url": "mailto:support.appconsol@gmail.com?subject=Reklam%20%26%20%C4%B0%C5%9Fbirli%C4%9Fi",
-  "active": true,
-  "style": {
-    "size": "medium",
-    "layout": "horizontal",
-    "bgColor": "blue",
-    "cornerRadius": 20,
-    "showMessage": true,
-    "animation": "none"
-  }
-},
+      "id": "collaboration",
+      "type": "link",
+      "titleTR": "Reklam & İşbirliği",
+      "titleEN": "Advertise & Collaborate",
+      "messageTR": "Bizimle iletişime geç",
+      "messageEN": "Get in touch with us",
+      "icon": "envelope.fill",
+      "color": "blue",
+      "url": "mailto:support.appconsol@gmail.com?subject=Reklam%20%26%20%C4%B0%C5%9Fbirli%C4%9Fi",
+      "active": true,
+      "style": {
+        "size": "medium",
+        "layout": "horizontal",
+        "bgColor": "blue",
+        "cornerRadius": 20,
+        "showMessage": true,
+        "animation": "none"
+      }
+    },
+    {
+      "id": "developer_guides",
+      "type": "link",
+      "titleTR": "Developer Guide",
+      "titleEN": "Developer Guide",
+      "messageTR": "ASO, Apple Ads, uygulama geliştirme rehberleri",
+      "messageEN": "ASO, Apple Ads, app development guides",
+      "icon": "book.fill",
+      "color": "teal",
+      "url": "https://barisgungor23-beep.github.io/AppConsol/guides",
+      "active": true,
+      "style": {
+        "size": "medium",
+        "layout": "horizontal",
+        "bgColor": "teal",
+        "cornerRadius": 20,
+        "showMessage": true,
+        "animation": "none"
+      }
+    },
     {
       "id": "thank_you",
       "type": "announcement",
@@ -77,26 +97,6 @@
         "showMessage": true,
         "animation": "shimmer"
       }
-    },
-    {
-  "id": "developer_guides",
-  "type": "link",
-  "titleTR": "Developer Guide",
-  "titleEN": "Developer Guide",
-  "messageTR": "ASO, Apple Ads, uygulama geliştirme rehberleri",
-  "messageEN": "ASO, Apple Ads, app development guides",
-  "icon": "book.fill",
-  "color": "teal",
-  "url": "https://barisgungor23-beep.github.io/AppConsol/guides",
-  "active": false,
-  "style": {
-    "size": "medium",
-    "layout": "horizontal",
-    "bgColor": "teal",
-    "cornerRadius": 20,
-    "showMessage": true,
-    "animation": "none"
-  }
-}
+    }
   ]
 }
