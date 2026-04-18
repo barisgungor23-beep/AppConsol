@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keyword Araştırması · AppConsol</title>
+<style>
+  :root { --green: #3B6D11; --green-light: #EAF3DE; --text: #1C1C1E; --text-secondary: #6C6C70; --border: #E5E5EA; --bg: #F2F2F7; --card: #FFFFFF; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; background: var(--bg); color: var(--text); }
+  .header { background: var(--green); padding: 48px 24px 32px; }
+  .back { color: rgba(255,255,255,0.8); font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 16px; }
+  .header h1 { color: white; font-size: 24px; font-weight: 700; line-height: 1.3; }
+  .header .meta { color: rgba(255,255,255,0.65); font-size: 13px; margin-top: 8px; }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+  .card { background: var(--card); border-radius: 14px; padding: 18px; margin-bottom: 12px; border: 0.5px solid var(--border); }
+  .step-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: var(--green-light); color: var(--green); border-radius: 8px; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .step-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .step-body { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .step-body strong { color: var(--text); font-weight: 600; }
+  .tip { background: var(--green-light); border-radius: 10px; padding: 12px 14px; margin-top: 10px; font-size: 13px; color: var(--green); line-height: 1.5; }
+  .tip::before { content: "💡 "; }
+  .intro { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+  h2 { font-size: 18px; font-weight: 700; margin: 28px 0 14px; }
+  .warning { background: #FFF8E1; border-radius: 10px; padding: 12px 14px; font-size: 13px; color: #795548; line-height: 1.5; margin-top: 10px; }
+  .warning::before { content: "⚠️ "; }
+  footer { text-align: center; padding: 24px 16px; color: var(--text-secondary); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index.html">‹ Rehberler</a>
+  <h1>Keyword Araştırması</h1>
+  <div class="meta">App Store Optimizasyonu · Nisan 2026</div>
+</div>
+
+<div class="container">
+  <p class="intro">App Store aramalarının %70'i doğrudan indirmeyle sonuçlanıyor. Doğru keyword'leri bulmak, reklam harcamadan organik büyümenin temelidir.</p>
+
+  <h2>Temel Kavramlar</h2>
+
+  <div class="card">
+    <div class="step-title">App Store keyword sistemi nasıl çalışır?</div>
+    <div class="step-body">
+      Apple üç alandan keyword indexler:<br><br>
+      <strong>1. Başlık (30 karakter):</strong> En yüksek ağırlık<br>
+      <strong>2. Alt başlık (30 karakter):</strong> İkinci yüksek ağırlık<br>
+      <strong>3. Keyword alanı (100 karakter):</strong> Ek keyword'ler, kullanıcıya görünmez<br><br>
+      Description indexlenmez. Her dil için bağımsız index tutulur.
+      <div class="tip">Apple bu üç alandaki kelimeleri birleştirerek çoklu kelime aramalarını da indexler. "revenue tracker" için ayrı bir giriş yapman gerekmez — "revenue" ve "tracker" ayrı ayrı eklemen yeterli.</div>
+    </div>
+  </div>
+
+  <h2>Adım Adım Araştırma</h2>
+
+  <div class="card">
+    <div class="step-num">1</div>
+    <div class="step-title">Seed keyword listesi oluştur</div>
+    <div class="step-body">
+      Kendi perspektifinden başla: <strong>"Kullanıcı bu uygulamayı bulmak için App Store'a ne yazar?"</strong><br><br>
+      20-30 aday kelime listele:<br>
+      • Uygulamanın kategori isimleri<br>
+      • Çözdüğü problem<br>
+      • Kullandığın teknoloji veya platform<br>
+      • Rakip uygulama isimleri<br>
+      • Hedef kitlenin kullandığı terimler
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">2</div>
+    <div class="step-title">App Store autocomplete'i kullan</div>
+    <div class="step-body">
+      En ucuz ve en güncel keyword araştırması: App Store arama kutusuna kelime yaz, önerilere bak.<br><br>
+      Autocomplete önerileri gerçek kullanıcı aramalarına dayanıyor. "analytics" yazınca çıkan öneriler, insanların gerçekten ne aradığını gösterir.
+      <div class="tip">Bu işlemi farklı diller için tekrar et — her pazarda kullanıcılar farklı terimler kullanıyor.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">3</div>
+    <div class="step-title">Rakiplerin keyword'lerini analiz et</div>
+    <div class="step-body">
+      Kategorindeki üst sıradaki uygulamaların başlık ve alt başlıklarını incele:<br><br>
+      • Hangi keyword'leri kullanıyorlar?<br>
+      • Başlıklarında ne var, senin başlığında yok?<br>
+      • Hangi kelimeleri tekrar ediyorlar — bu yüksek trafikli kelime işareti<br><br>
+      App Store Connect'in "Search" sekmesinde kendi keyword'lerinin sıralamasını takip edebilirsin.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">4</div>
+    <div class="step-title">Keyword'leri önceliklendir</div>
+    <div class="step-body">
+      Her keyword için şu soruları sor:<br><br>
+      <strong>Trafik:</strong> Bu kelimeyi kaç kişi arıyor?<br>
+      <strong>Rekabet:</strong> Bu kelime için kaç uygulama yarışıyor?<br>
+      <strong>İlgililik:</strong> Bu kelimeyi arayan kişi benim kullanıcım mı?<br><br>
+      En iyi keyword: yüksek trafik + düşük rekabet + yüksek ilgililik<br><br>
+      <strong>Long-tail keyword'lere odaklan:</strong> "sales analytics" yerine "app revenue tracker" daha az rekabetçi ve daha spesifik.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">5</div>
+    <div class="step-title">Keyword'leri doğru alanlara yerleştir</div>
+    <div class="step-body">
+      <strong>Başlık:</strong> En önemli 1-2 keyword<br>
+      <strong>Alt başlık:</strong> 2-3 ikincil keyword<br>
+      <strong>Keyword alanı:</strong> Kalan tüm keyword'ler, virgülle ayrılmış, boşluksuz<br><br>
+      Tekil form kullan — Apple çoğulu otomatik türetiyor.<br>
+      Stopword kullanma ("ve", "ile", "için") — bunları Apple zaten indexlemiyor.
+      <div class="warning">Başlık veya alt başlıktaki kelimeleri keyword alanında tekrar etme — her tekrar boşa harcanan karakter demek.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">6</div>
+    <div class="step-title">4-6 haftada bir gözden geçir</div>
+    <div class="step-body">
+      Keyword optimizasyonu tek seferlik bir iş değil. App Store algoritması değişiyor, rakipler güncelleniyor, kullanıcı alışkanlıkları kayıyor.<br><br>
+      • Hangi keyword'lerde üst sıradayım?<br>
+      • Hangi keyword'lerde hiç görünmüyorum?<br>
+      • Yeni trendler var mı?<br><br>
+      Düşük sıralanan keyword'leri kaldır, yeni adaylarla değiştir.
+      <div class="tip">AppConsol'daki ASO skoru keyword tazeliğini de ölçüyor — son güncellemenin üzerinden ne kadar geçtiğini gösteriyor.</div>
+    </div>
+  </div>
+
+  <h2>Sık Yapılan Hatalar</h2>
+
+  <div class="card">
+    <div class="step-title">Kaçınılması gerekenler</div>
+    <div class="step-body">
+      • <strong>Keyword stuffing:</strong> Başlıkta anlamsız keyword yığını — Apple reddediyor, kullanıcı da kaçıyor<br><br>
+      • <strong>Rakip uygulama adı kullanmak:</strong> Apple bunu tespit edip kaldırabiliyor<br><br>
+      • <strong>Sadece İngilizce düşünmek:</strong> Her dil için ayrı araştırma gerekiyor<br><br>
+      • <strong>Yüksek trafikli ama alakasız keyword:</strong> Tıklama gelir ama indirme gelmez — dönüşüm oranını düşürür<br><br>
+      • <strong>Hiç güncellememe:</strong> 3 ay güncellenmeyen keyword alanı sıralamada geriler
+    </div>
+  </div>
+
+</div>
+
+<footer>AppConsol Developer Guides · appconsolapp.com</footer>
+</body>
+</html>
