@@ -11,7 +11,7 @@
       "color": "red",
       "active": true,
       "style": {
-        "size": "medium",
+        "size": "small",
         "layout": "horizontal",
         "bgColor": "red",
         "cornerRadius": 24,
@@ -39,6 +39,26 @@
       }
     },
     {
+      "id": "developer_guides",
+      "type": "link",
+      "titleTR": "Developer Guide",
+      "titleEN": "Developer Guide",
+      "messageTR": "ASO, Apple Ads, uygulama geliştirme rehberleri",
+      "messageEN": "ASO, Apple Ads, app development guides",
+      "icon": "book.fill",
+      "color": "green",
+      "url": "https://barisgungor23-beep.github.io/AppConsol/guides/",
+      "active": true,
+      "style": {
+        "size": "small",
+        "layout": "horizontal",
+        "bgColor": "green",
+        "cornerRadius": 20,
+        "showMessage": true,
+        "animation": "none"
+      }
+    },
+    {
       "id": "promo_1month",
       "type": "promo",
       "titleTR": "1 Aylık Ücretsiz Premium",
@@ -56,26 +76,6 @@
         "cornerRadius": 20,
         "showMessage": true,
         "animation": "shimmer"
-      }
-    },
-    {
-      "id": "developer_guides",
-      "type": "link",
-      "titleTR": "Developer Guide",
-      "titleEN": "Developer Guide",
-      "messageTR": "ASO, Apple Ads, uygulama geliştirme rehberleri",
-      "messageEN": "ASO, Apple Ads, app development guides",
-      "icon": "book.fill",
-      "color": "teal",
-      "url": "https://barisgungor23-beep.github.io/AppConsol/guides/",
-      "active": true,
-      "style": {
-        "size": "small",
-        "layout": "horizontal",
-        "bgColor": "teal",
-        "cornerRadius": 20,
-        "showMessage": true,
-        "animation": "none"
       }
     },
     {
