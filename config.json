@@ -68,7 +68,7 @@
       "icon": "gift.fill",
       "color": "purple",
       "code": "1MONTH",
-      "active": true,
+      "active": false,
       "style": {
         "size": "small",
         "layout": "horizontal",
