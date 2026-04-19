@@ -97,6 +97,26 @@
         "showMessage": true,
         "animation": "none"
       }
+    },
+    {
+      "id": "version_211",
+      "type": "link",
+      "titleTR": "v2.1.1 Şimdi Yayında",
+      "titleEN": "v2.1.1 Now Live",
+      "messageTR": "Güncelle ve yenilikleri keşfet",
+      "messageEN": "Update now and discover what's new",
+      "icon": "checkmark.circle.fill",
+      "color": "teal",
+      "active": true,
+      "style": {
+        "size": "small",
+        "layout": "horizontal",
+        "bgColor": "teal",
+        "cornerRadius": 20,
+        "showMessage": true,
+        "animation": "none"
+      },
+      "url": "https://apps.apple.com/us/app/appconsol-sales-analytics/id6761332241"
     }
   ]
 }
