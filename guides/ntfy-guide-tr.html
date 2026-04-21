@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunucu Olmadan İndirme ve Satın Alma Takibi · AppConsol</title>
+<style>
+  :root { --purple: #534AB7; --purple-light: #EEEDFE; --text: #1C1C1E; --text-secondary: #6C6C70; --border: #E5E5EA; --bg: #F2F2F7; --card: #FFFFFF; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; background: var(--bg); color: var(--text); }
+  .header { background: var(--purple); padding: 48px 24px 32px; }
+  .back { color: rgba(255,255,255,0.8); font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 16px; }
+  .header h1 { color: white; font-size: 22px; font-weight: 700; line-height: 1.3; }
+  .header .meta { color: rgba(255,255,255,0.65); font-size: 13px; margin-top: 8px; }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+  .card { background: var(--card); border-radius: 14px; padding: 18px; margin-bottom: 12px; border: 0.5px solid var(--border); }
+  .step-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: var(--purple-light); color: var(--purple); border-radius: 8px; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .step-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .step-body { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .step-body strong { color: var(--text); font-weight: 600; }
+  .tip { background: var(--purple-light); border-radius: 10px; padding: 12px 14px; margin-top: 10px; font-size: 13px; color: var(--purple); line-height: 1.5; }
+  .tip::before { content: "💡 "; }
+  .warning { background: #FFF8E1; border-radius: 10px; padding: 12px 14px; font-size: 13px; color: #795548; line-height: 1.5; margin-top: 10px; }
+  .warning::before { content: "⚠️ "; }
+  .code { background: #1C1C1E; border-radius: 10px; padding: 14px; margin-top: 10px; font-family: 'SF Mono', Menlo, monospace; font-size: 13px; color: #E5E5EA; line-height: 1.6; overflow-x: auto; }
+  .code .comment { color: #6C6C70; }
+  .code .keyword { color: #FF7AB2; }
+  .code .string { color: #FF8170; }
+  .code .type { color: #6BDFFF; }
+  .intro { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+  h2 { font-size: 18px; font-weight: 700; margin: 28px 0 14px; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; background: var(--purple-light); color: var(--purple); margin-bottom: 8px; }
+  footer { text-align: center; padding: 24px 16px; color: var(--text-secondary); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index.html">‹ Rehberler</a>
+  <h1>Sunucu Olmadan İndirme ve Satın Alma Takibi</h1>
+  <div class="meta">iOS Geliştirme · Nisan 2026</div>
+</div>
+
+<div class="container">
+  <p class="intro">Backend kurma, SDK entegre etme, API key yönetme — bunların hiçbiri olmadan uygulamanın her indirmesinde ve satın alımında anında bildirim alabilirsin. Bu rehberde ntfy.sh'i iOS uygulamasına nasıl entegre edeceğini adım adım anlatıyorum.</p>
+
+  <h2>ntfy nedir?</h2>
+
+  <div class="card">
+    <div class="step-body">
+      ntfy (notify), açık kaynaklı ve ücretsiz bir HTTP tabanlı bildirim servisidir. Bir URL'e POST isteği atarak telefonuna anlık bildirim gönderebilirsin.<br><br>
+      <strong>Neden ntfy?</strong><br><br>
+      • SDK yok — standart URLSession yeterli<br>
+      • Kullanıcı verisi gönderilmiyor<br>
+      • Uygulama içinde tamamen gizli çalışıyor<br>
+      • Ücretsiz, hesap gerektirmiyor<br>
+      • Apple App Store kurallarıyla uyumlu (anonim, kişisel veri yok)
+      <div class="tip">ntfy.sh/KANAL_ADI formatında çalışıyor. Kanal adın senin "şifren" — tahmin edilemez bir isim seç.</div>
+    </div>
+  </div>
+
+  <h2>Kurulum</h2>
+
+  <div class="card">
+    <div class="step-num">1</div>
+    <div class="step-title">ntfy uygulamasını indir</div>
+    <div class="step-body">
+      App Store'dan "ntfy" ara, ücretsiz uygulamayı indir.<br><br>
+      Uygulamayı açınca "+" butonuna bas, kanalına abone ol. Örnek kanal adları:<br><br>
+      • <strong>myapp-install-x7k2p9</strong> (indirme bildirimleri için)<br>
+      • <strong>myapp-premium-n5x8j4</strong> (satın alma bildirimleri için)<br><br>
+      Kanal adını tahmin edilemez yap — UUID veya rastgele karakterler kullan.
+      <div class="warning">Kanal adın herkese açık. Kolayca tahmin edilebilirse başkaları da abone olabilir. "myapp-installs" gibi basit isimler kullanma.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">2</div>
+    <div class="step-title">NtfyService.swift dosyasını oluştur</div>
+    <div class="step-body">
+      Projeye yeni bir Swift dosyası ekle:
+      <div class="code"><span class="keyword">import</span> Foundation
+
+<span class="comment">// MARK: - Ntfy Service</span>
+
+<span class="keyword">actor</span> <span class="type">NtfyService</span> {
+    <span class="keyword">static let</span> shared = <span class="type">NtfyService</span>()
+    <span class="keyword">private init</span>() {}
+
+    <span class="keyword">private let</span> installTopic = <span class="string">"myapp-install-x7k2p9"</span>
+    <span class="keyword">private let</span> premiumTopic = <span class="string">"myapp-premium-n5x8j4"</span>
+
+    <span class="keyword">func</span> onboardingStarted() <span class="keyword">async</span> {
+        <span class="keyword">await</span> send(topic: installTopic, message: <span class="string">"Yeni kullanıcı"</span>)
+    }
+
+    <span class="keyword">func</span> premiumPurchased() <span class="keyword">async</span> {
+        <span class="keyword">await</span> send(topic: premiumTopic, message: <span class="string">"Yeni satın alım"</span>)
+    }
+
+    <span class="keyword">private func</span> send(topic: <span class="type">String</span>, message: <span class="type">String</span>) <span class="keyword">async</span> {
+        <span class="keyword">guard let</span> url = <span class="type">URL</span>(string: <span class="string">"https://ntfy.sh/\(topic)"</span>)
+        <span class="keyword">else</span> { <span class="keyword">return</span> }
+
+        <span class="keyword">var</span> request = <span class="type">URLRequest</span>(url: url)
+        request.httpMethod = <span class="string">"POST"</span>
+        request.httpBody = message.data(using: .utf8)
+        request.timeoutInterval = 5
+
+        <span class="keyword">do</span> {
+            <span class="keyword">let</span> (_, response) = <span class="keyword">try await</span> <span class="type">URLSession</span>.shared.data(for: request)
+            <span class="comment">#if DEBUG</span>
+            <span class="keyword">let</span> status = (response <span class="keyword">as</span>? <span class="type">HTTPURLResponse</span>)?.statusCode ?? 0
+            print(<span class="string">"[Ntfy] \(topic) → \(status)"</span>)
+            <span class="comment">#endif</span>
+        } <span class="keyword">catch</span> {
+            <span class="comment">// Sessizce başarısız ol — kullanıcıyı etkilemez</span>
+        }
+    }
+}</div>
+      <div class="tip">actor kullanmak Swift 6 uyumluluğu sağlar ve thread safety garantiler. NSLock veya DispatchQueue gerekmez.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">3</div>
+    <div class="step-title">Onboarding'e ekle</div>
+    <div class="step-body">
+      Kullanıcının ilk "Devam" tuşuna bastığı yere ekle:
+      <div class="code"><span class="comment">// İlk sayfadan geçişte tetikle (page 0 → 1)</span>
+<span class="keyword">if</span> currentPage == 0 {
+    <span class="type">Task</span> { <span class="keyword">await</span> <span class="type">NtfyService</span>.shared.onboardingStarted() }
+}
+<span class="comment">// Normal sayfa geçişi devam eder</span>
+currentPage += 1</div>
+      <div class="warning">İlk sayfada tetikle — son sayfada değil. Kullanıcı onboarding'i yarıda bıraksa bile indirme sayılır.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">4</div>
+    <div class="step-title">Satın almaya ekle</div>
+    <div class="step-body">
+      StoreKit 2 ile yapılan satın almalar <strong>Transaction.updates</strong> listener'ından geçer. Buna eklemek, normal satın alma, promosyon kodu ve restore dahil tüm senaryoları yakalar:
+      <div class="code"><span class="keyword">private func</span> listenForTransactions() {
+    <span class="type">Task</span>.detached {
+        <span class="keyword">for await</span> result <span class="keyword">in</span> <span class="type">Transaction</span>.updates {
+            <span class="keyword">if case</span> .verified(<span class="keyword">let</span> transaction) = result {
+                <span class="keyword">await</span> transaction.finish()
+                <span class="keyword">await</span> self.checkEntitlements()
+                <span class="comment">// Ntfy bildirimi</span>
+                <span class="type">Task</span> { <span class="keyword">await</span> <span class="type">NtfyService</span>.shared.premiumPurchased() }
+            }
+        }
+    }
+}</div>
+      <div class="tip">purchase() fonksiyonuna değil, Transaction.updates'e ekle. Böylece App Store üzerinden gelen tüm işlemler yakalanır — uygulama kapalıyken yapılan işlemler bile.</div>
+    </div>
+  </div>
+
+  <h2>Test</h2>
+
+  <div class="card">
+    <div class="step-title">Simülatörde test et</div>
+    <div class="step-body">
+      Simülatörde uygulamayı çalıştır, onboarding'in ilk sayfasında "Devam"a bas. Xcode konsolunda şunu görmelisin:<br><br>
+      <div class="code">[Ntfy] myapp-install-x7k2p9 → 200</div><br>
+      Aynı anda telefonundaki ntfy uygulamasında bildirim gelecek.<br><br>
+      <strong>200 aldın ama bildirim gelmediyse:</strong><br>
+      • ntfy uygulamasında kanal adını kontrol et<br>
+      • Bildirim izinlerini kontrol et<br>
+      • Kanaldan çık ve tekrar abone ol
+    </div>
+  </div>
+
+  <h2>Apple App Store uyumu</h2>
+
+  <div class="card">
+    <div class="step-title">Bu yaklaşım Apple kurallarıyla uyumlu mu?</div>
+    <div class="step-body">
+      Evet — şu koşullar sağlandığında:<br><br>
+      • <strong>Kişisel veri gönderilmiyor:</strong> "Yeni kullanıcı" gibi sabit bir metin gönderiyorsun — cihaz ID, IP, kullanıcı bilgisi yok<br>
+      • <strong>Kullanıcı fark etmiyor:</strong> Arka planda sessizce çalışıyor, kullanıcı deneyimini etkilemiyor<br>
+      • <strong>Analitik değil, kendi bildirimin:</strong> Veriler üçüncü taraflarla paylaşılmıyor<br><br>
+      Apple Guideline 5.1.2 kullanıcı verisini izlemeyi kısıtlar. Anonim sinyal göndermek bu kapsama girmiyor.
+      <div class="tip">PrivacyInfo.xcprivacy'de bu HTTP isteğini beyan etmen gerekmiyor — kullanıcıya ait hiçbir veri işlenmiyor.</div>
+    </div>
+  </div>
+
+  <h2>Sınırlar</h2>
+
+  <div class="card">
+    <div class="step-title">Ücretsiz planda ne kadar kullanabilirsin?</div>
+    <div class="step-body">
+      ntfy.sh ücretsiz planda burst olarak 60 mesaj, sonrasında her 5 saniyede 1 mesaj gönderebilirsin. Bu, günde yüzlerce indirme anlamına gelir — büyük çoğunluk için yeterli.<br><br>
+      <strong>Limitin üstüne çıkarsan:</strong> Uygulama sessizce başarısız olur, kullanıcı etkilenmez. Sadece o bildirim gelmiyor.<br><br>
+      Daha yüksek limit gerekirse ntfy.sh ücretli plan (~$5/ay) veya kendi sunucunda ntfy kurabilirsin.
+    </div>
+  </div>
+
+</div>
+
+<footer>AppConsol Developer Guides · appconsolapp.com</footer>
+</body>
+</html>
