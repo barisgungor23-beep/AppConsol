@@ -107,7 +107,7 @@
       "messageEN": "Update now and discover what's new",
       "icon": "checkmark.circle.fill",
       "color": "teal",
-      "active": true,
+      "active": false,
       "style": {
         "size": "small",
         "layout": "horizontal",
