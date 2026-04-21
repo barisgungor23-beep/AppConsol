@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Installs and Purchases Without a Backend · AppConsol</title>
+<style>
+  :root { --purple: #534AB7; --purple-light: #EEEDFE; --text: #1C1C1E; --text-secondary: #6C6C70; --border: #E5E5EA; --bg: #F2F2F7; --card: #FFFFFF; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; background: var(--bg); color: var(--text); }
+  .header { background: var(--purple); padding: 48px 24px 32px; }
+  .back { color: rgba(255,255,255,0.8); font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 16px; }
+  .header h1 { color: white; font-size: 22px; font-weight: 700; line-height: 1.3; }
+  .header .meta { color: rgba(255,255,255,0.65); font-size: 13px; margin-top: 8px; }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+  .card { background: var(--card); border-radius: 14px; padding: 18px; margin-bottom: 12px; border: 0.5px solid var(--border); }
+  .step-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: var(--purple-light); color: var(--purple); border-radius: 8px; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .step-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .step-body { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .step-body strong { color: var(--text); font-weight: 600; }
+  .tip { background: var(--purple-light); border-radius: 10px; padding: 12px 14px; margin-top: 10px; font-size: 13px; color: var(--purple); line-height: 1.5; }
+  .tip::before { content: "💡 "; }
+  .warning { background: #FFF8E1; border-radius: 10px; padding: 12px 14px; font-size: 13px; color: #795548; line-height: 1.5; margin-top: 10px; }
+  .warning::before { content: "⚠️ "; }
+  .code { background: #1C1C1E; border-radius: 10px; padding: 14px; margin-top: 10px; font-family: 'SF Mono', Menlo, monospace; font-size: 13px; color: #E5E5EA; line-height: 1.6; overflow-x: auto; }
+  .code .comment { color: #6C6C70; }
+  .code .keyword { color: #FF7AB2; }
+  .code .string { color: #FF8170; }
+  .code .type { color: #6BDFFF; }
+  .intro { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+  h2 { font-size: 18px; font-weight: 700; margin: 28px 0 14px; }
+  footer { text-align: center; padding: 24px 16px; color: var(--text-secondary); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index.html">‹ Guides</a>
+  <h1>Track Installs and Purchases Without a Backend</h1>
+  <div class="meta">iOS Development · April 2026</div>
+</div>
+
+<div class="container">
+  <p class="intro">No backend, no SDK, no API key management. In this guide I'll show you how to get an instant notification on your phone every time someone downloads your app or makes a purchase — using nothing but a simple HTTP request.</p>
+
+  <h2>What is ntfy?</h2>
+
+  <div class="card">
+    <div class="step-body">
+      ntfy (pronounced "notify") is a free, open-source HTTP-based notification service. You send a POST request to a URL, and your phone gets a notification instantly.<br><br>
+      <strong>Why ntfy?</strong><br><br>
+      • No SDK — standard URLSession is all you need<br>
+      • No user data is transmitted<br>
+      • Runs completely invisibly inside your app<br>
+      • Free, no account required<br>
+      • Compliant with Apple App Store guidelines (anonymous, no personal data)
+      <div class="tip">ntfy works on the format ntfy.sh/TOPIC_NAME. Your topic name is your "password" — choose something that can't be guessed.</div>
+    </div>
+  </div>
+
+  <h2>Setup</h2>
+
+  <div class="card">
+    <div class="step-num">1</div>
+    <div class="step-title">Download the ntfy app</div>
+    <div class="step-body">
+      Search for "ntfy" on the App Store and download the free app.<br><br>
+      Once open, tap "+" and subscribe to your topics. Example topic names:<br><br>
+      • <strong>myapp-install-x7k2p9</strong> (for install notifications)<br>
+      • <strong>myapp-premium-n5x8j4</strong> (for purchase notifications)<br><br>
+      Make topic names hard to guess — use a UUID or random characters.
+      <div class="warning">Topic names are public. If yours can be easily guessed, anyone can subscribe. Don't use simple names like "myapp-installs".</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">2</div>
+    <div class="step-title">Create NtfyService.swift</div>
+    <div class="step-body">
+      Add a new Swift file to your project:
+      <div class="code"><span class="keyword">import</span> Foundation
+
+<span class="comment">// MARK: - Ntfy Service</span>
+
+<span class="keyword">actor</span> <span class="type">NtfyService</span> {
+    <span class="keyword">static let</span> shared = <span class="type">NtfyService</span>()
+    <span class="keyword">private init</span>() {}
+
+    <span class="keyword">private let</span> installTopic = <span class="string">"myapp-install-x7k2p9"</span>
+    <span class="keyword">private let</span> premiumTopic = <span class="string">"myapp-premium-n5x8j4"</span>
+
+    <span class="keyword">func</span> onboardingStarted() <span class="keyword">async</span> {
+        <span class="keyword">await</span> send(topic: installTopic, message: <span class="string">"New user"</span>)
+    }
+
+    <span class="keyword">func</span> premiumPurchased() <span class="keyword">async</span> {
+        <span class="keyword">await</span> send(topic: premiumTopic, message: <span class="string">"New purchase"</span>)
+    }
+
+    <span class="keyword">private func</span> send(topic: <span class="type">String</span>, message: <span class="type">String</span>) <span class="keyword">async</span> {
+        <span class="keyword">guard let</span> url = <span class="type">URL</span>(string: <span class="string">"https://ntfy.sh/\(topic)"</span>)
+        <span class="keyword">else</span> { <span class="keyword">return</span> }
+
+        <span class="keyword">var</span> request = <span class="type">URLRequest</span>(url: url)
+        request.httpMethod = <span class="string">"POST"</span>
+        request.httpBody = message.data(using: .utf8)
+        request.timeoutInterval = 5
+
+        <span class="keyword">do</span> {
+            <span class="keyword">let</span> (_, response) = <span class="keyword">try await</span> <span class="type">URLSession</span>.shared.data(for: request)
+            <span class="comment">#if DEBUG</span>
+            <span class="keyword">let</span> status = (response <span class="keyword">as</span>? <span class="type">HTTPURLResponse</span>)?.statusCode ?? 0
+            print(<span class="string">"[Ntfy] \(topic) → \(status)"</span>)
+            <span class="comment">#endif</span>
+        } <span class="keyword">catch</span> {
+            <span class="comment">// Fail silently — never affects the user</span>
+        }
+    }
+}</div>
+      <div class="tip">Using actor provides Swift 6 compatibility and guarantees thread safety — no NSLock or DispatchQueue needed.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">3</div>
+    <div class="step-title">Add to onboarding</div>
+    <div class="step-body">
+      Add this where the user taps the first "Continue" button:
+      <div class="code"><span class="comment">// Fire on the transition from page 0 → 1</span>
+<span class="keyword">if</span> currentPage == 0 {
+    <span class="type">Task</span> { <span class="keyword">await</span> <span class="type">NtfyService</span>.shared.onboardingStarted() }
+}
+<span class="comment">// Normal page transition continues</span>
+currentPage += 1</div>
+      <div class="warning">Trigger on the first page, not the last. This way you count the install even if the user abandons onboarding halfway through.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-num">4</div>
+    <div class="step-title">Add to purchases</div>
+    <div class="step-body">
+      With StoreKit 2, all purchases flow through <strong>Transaction.updates</strong>. Adding the notification here catches normal purchases, promo codes, and restores:
+      <div class="code"><span class="keyword">private func</span> listenForTransactions() {
+    <span class="type">Task</span>.detached {
+        <span class="keyword">for await</span> result <span class="keyword">in</span> <span class="type">Transaction</span>.updates {
+            <span class="keyword">if case</span> .verified(<span class="keyword">let</span> transaction) = result {
+                <span class="keyword">await</span> transaction.finish()
+                <span class="keyword">await</span> self.checkEntitlements()
+                <span class="comment">// Ntfy notification</span>
+                <span class="type">Task</span> { <span class="keyword">await</span> <span class="type">NtfyService</span>.shared.premiumPurchased() }
+            }
+        }
+    }
+}</div>
+      <div class="tip">Add to Transaction.updates, not purchase(). This catches all transactions that come through the App Store — including those made while the app was closed.</div>
+    </div>
+  </div>
+
+  <h2>Testing</h2>
+
+  <div class="card">
+    <div class="step-title">Test in the Simulator</div>
+    <div class="step-body">
+      Run the app in Simulator, go through onboarding and tap "Continue" on the first page. You should see this in the Xcode console:<br><br>
+      <div class="code">[Ntfy] myapp-install-x7k2p9 → 200</div><br>
+      At the same moment, a notification should arrive on your phone in the ntfy app.<br><br>
+      <strong>Got 200 but no notification?</strong><br>
+      • Check the topic name in the ntfy app<br>
+      • Check notification permissions<br>
+      • Unsubscribe from the channel and re-subscribe
+    </div>
+  </div>
+
+  <h2>App Store compliance</h2>
+
+  <div class="card">
+    <div class="step-title">Is this approach compliant with Apple's guidelines?</div>
+    <div class="step-body">
+      Yes — as long as these conditions are met:<br><br>
+      • <strong>No personal data is sent:</strong> You're sending a fixed string like "New user" — no device ID, IP address, or user information<br>
+      • <strong>The user doesn't notice:</strong> It runs silently in the background and has no effect on the user experience<br>
+      • <strong>It's your own notification, not analytics:</strong> Data isn't shared with third parties<br><br>
+      Apple Guideline 5.1.2 restricts tracking user data. Sending an anonymous signal doesn't fall under this restriction.
+      <div class="tip">You don't need to declare this HTTP request in PrivacyInfo.xcprivacy — no user data is being processed.</div>
+    </div>
+  </div>
+
+  <h2>Limits</h2>
+
+  <div class="card">
+    <div class="step-title">How much can you use on the free plan?</div>
+    <div class="step-body">
+      The ntfy.sh free plan allows a burst of 60 messages, then replenishes at one message every 5 seconds. That translates to hundreds of installs per day — more than enough for most indie apps.<br><br>
+      <strong>If you hit the limit:</strong> The app fails silently. The user is not affected. You just miss that one notification.<br><br>
+      If you need higher limits, ntfy.sh has a paid plan (~$5/month), or you can self-host ntfy on your own server.
+    </div>
+  </div>
+
+</div>
+
+<footer>AppConsol Developer Guides · appconsolapp.com</footer>
+</body>
+</html>
