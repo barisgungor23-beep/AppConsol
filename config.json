@@ -99,15 +99,15 @@
       }
     },
     {
-      "id": "version_211",
+      "id": "version_220",
       "type": "link",
-      "titleTR": "v2.1.1 Şimdi Yayında",
-      "titleEN": "v2.1.1 Now Live",
+      "titleTR": "v2.2.0 Şimdi Yayında",
+      "titleEN": "v2.2.0 Now Live",
       "messageTR": "Güncelle ve yenilikleri keşfet",
       "messageEN": "Update now and discover what's new",
       "icon": "checkmark.circle.fill",
       "color": "teal",
-      "active": false,
+      "active": true,
       "style": {
         "size": "small",
         "layout": "horizontal",
