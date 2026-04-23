@@ -107,7 +107,7 @@
       "messageEN": "Update now and discover what's new",
       "icon": "checkmark.circle.fill",
       "color": "teal",
-      "active": true,
+      "active": false,
       "style": {
         "size": "small",
         "layout": "horizontal",
@@ -117,6 +117,26 @@
         "animation": "none"
       },
       "url": "https://apps.apple.com/us/app/appconsol-sales-analytics/id6761332241"
+    },
+    {
+      "id": "rate_us",
+      "type": "link",
+      "titleTR": "AppConsol'u beğendin mi?",
+      "titleEN": "Enjoying AppConsol?",
+      "messageTR": "App Store'da yorum bırakarak destek ol ⭐",
+      "messageEN": "Leave a review on the App Store ⭐",
+      "icon": "star.fill",
+      "color": "yellow",
+      "url": "https://apps.apple.com/app/id6761332241?action=write-review",
+      "active": true,
+      "style": {
+        "size": "small",
+        "layout": "horizontal",
+        "bgColor": "yellow",
+        "cornerRadius": 20,
+        "showMessage": true,
+        "animation": "shimmer"
+      }
     }
   ]
 }
