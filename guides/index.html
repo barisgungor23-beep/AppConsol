@@ -40,6 +40,7 @@
   .icon-blue { background: #E6F1FB; }
   .icon-green { background: #EAF3DE; }
   .icon-orange { background: #FAEEDA; }
+  .icon-pink { background: #FDE8F0; }
   .card-content { flex: 1; }
   .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
   .card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
@@ -108,6 +109,15 @@
     </div>
     <span class="card-arrow">›</span>
   </a>
+
+  <a class="card" href="#" id="card-6">
+    <div class="icon-wrap icon-pink">🌍</div>
+    <div class="card-content">
+      <div class="card-title" id="card-6-title"></div>
+      <div class="card-desc" id="card-6-desc"></div>
+    </div>
+    <span class="card-arrow">›</span>
+  </a>
 </div>
 
 <footer>AppConsol · <span id="footer-text"></span></footer>
@@ -124,7 +134,8 @@ const content = {
       { title: "Screenshot Stratejisi", desc: "İlk 3 saniyede kullanıcıyı ikna eden görsel akış nasıl kurulur", href: "screenshot-strategy-tr.html" },
       { title: "Keyword Araştırması", desc: "Doğru anahtar kelimeleri bulmanın adım adım yöntemi", href: "keyword-research-tr.html" },
       { title: "Doğru Kitleyi Bulmak", desc: "Uygulamanı gerçekten indirip kullanan kişileri nasıl tanırsın", href: "target-audience-tr.html" },
-      { title: "Sunucu Olmadan İndirme Takibi", desc: "ntfy ile anlık bildirim al — SDK yok, backend yok", href: "ntfy-guide-tr.html" }
+      { title: "Sunucu Olmadan İndirme Takibi", desc: "ntfy ile anlık bildirim al — SDK yok, backend yok", href: "ntfy-guide-tr.html" },
+      { title: "Ekran Görüntüsü Yerelleştirme", desc: "Yabancı pazarlarda dönüşümü artıran screenshot stratejisi", href: "screenshot-localization-guide.html" }
     ]
   },
   en: {
@@ -137,7 +148,8 @@ const content = {
       { title: "Screenshot Strategy", desc: "How to build a visual flow that convinces users in the first 3 seconds", href: "screenshot-strategy-en.html" },
       { title: "Keyword Research", desc: "A step-by-step method to find the right keywords for your app", href: "keyword-research-en.html" },
       { title: "Finding Your Target Audience", desc: "How to identify people who actually download and use your app", href: "target-audience-en.html" },
-      { title: "Track Installs Without a Backend", desc: "Get instant notifications with ntfy — no SDK, no server", href: "ntfy-guide-en.html" }
+      { title: "Track Installs Without a Backend", desc: "Get instant notifications with ntfy — no SDK, no server", href: "ntfy-guide-en.html" },
+      { title: "Screenshot Localization", desc: "How localized screenshots boost conversion and unlock new keyword territory", href: "screenshot-localization-guide.html" }
     ]
   }
 };
