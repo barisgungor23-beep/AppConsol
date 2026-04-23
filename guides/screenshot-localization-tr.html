@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ekran Görüntüsü Yerelleştirme Rehberi — AppConsol</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff;
+    --surface: #f7f7fb;
+    --surface2: #f0f0f6;
+    --border: #e4e4ef;
+    --accent: #6c47ff;
+    --accent2: #00b894;
+    --accent3: #e55039;
+    --text: #111118;
+    --text2: #555566;
+    --text3: #9090aa;
+    --mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* LANG SWITCHER */
+  .lang-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .lang-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  /* CONTENT SECTIONS */
+  .lang-content { display: none; }
+  .lang-content.active { display: block; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    padding: 80px 24px 64px;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #f9f7ff 0%, #ffffff 60%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 400px;
+    background: radial-gradient(ellipse, rgba(108,71,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    border: 1px solid rgba(0,184,148,0.35);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    background: rgba(0,184,148,0.06);
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 5.5vw, 58px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+    color: var(--text);
+  }
+
+  .hero h1 span {
+    background: linear-gradient(135deg, var(--accent) 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text2);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--text3);
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* LAYOUT */
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 56px 0;
+  }
+
+  .section { margin-bottom: 72px; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 16px; height: 2px;
+    background: var(--accent);
+    display: inline-block;
+    border-radius: 2px;
+  }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(20px, 3.5vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+
+  h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  p { color: var(--text2); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* CALLOUT */
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: rgba(108,71,255,0.05);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 22px 0;
+  }
+
+  .callout.green {
+    border-color: var(--accent2);
+    background: rgba(0,184,148,0.06);
+  }
+
+  .callout.red {
+    border-color: var(--accent3);
+    background: rgba(229,80,57,0.05);
+  }
+
+  .callout p { margin: 0; font-size: 15px; }
+
+  .callout-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .callout.green .callout-title { color: var(--accent2); }
+  .callout.red .callout-title { color: var(--accent3); }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin: 22px 0;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(108,71,255,0.08);
+  }
+
+  .card-icon { font-size: 26px; margin-bottom: 12px; display: block; }
+  .card h3 { font-size: 14px; margin-bottom: 7px; }
+  .card p { font-size: 13px; color: var(--text2); margin: 0; }
+
+  /* TABLE */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 22px 0;
+    font-size: 14px;
+  }
+
+  .data-table th {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .data-table td {
+    padding: 12px 14px;
+    color: var(--text2);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(108,71,255,0.03); }
+
+  .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 100px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .badge-high { background: rgba(0,184,148,0.12); color: var(--accent2); }
+  .badge-med  { background: rgba(108,71,255,0.1); color: var(--accent); }
+  .badge-low  { background: rgba(229,80,57,0.1); color: var(--accent3); }
+
+  /* STEPS */
+  .steps { margin: 26px 0; }
+
+  .step {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 26px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #a78bfa);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .step-content h3 { margin-bottom: 5px; }
+  .step-content p { font-size: 15px; margin: 0; }
+
+  /* EXAMPLE BOX */
+  .example {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .example-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text3);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .ex-locale { color: var(--accent); }
+  .ex-text   { color: var(--text); }
+  .ex-note   { color: var(--text3); font-style: italic; }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; margin: 18px 0; }
+
+  .checklist li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text2);
+    font-size: 15px;
+  }
+
+  .checklist li:last-child { border-bottom: none; }
+
+  .check-icon {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+
+  /* IMPACT METER */
+  .impact-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .impact-row:last-child { border-bottom: none; }
+
+  .impact-label {
+    font-size: 14px;
+    color: var(--text);
+    width: 180px;
+    flex-shrink: 0;
+  }
+
+  .impact-bar-wrap {
+    flex: 1;
+    height: 5px;
+    background: var(--surface2);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .impact-bar {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .impact-pct {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    width: 45px;
+    text-align: right;
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 36px 24px;
+    text-align: center;
+    background: var(--surface);
+  }
+
+  .footer p { font-size: 13px; color: var(--text3); margin: 0; }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .hero-stats { gap: 20px; }
+    .impact-label { width: 110px; font-size: 13px; }
+    .data-table { font-size: 12px; }
+    .data-table th, .data-table td { padding: 9px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LANG SWITCHER -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- ===================== TURKISH ===================== -->
+<div id="lang-tr" class="lang-content active">
+
+<section class="hero">
+  <div class="hero-tag">AppConsol Rehberi</div>
+  <h1>Ekran Görüntüsü<br><span>Yerelleştirme</span></h1>
+  <p class="hero-sub">Ekran görüntülerini çevirmek neden en yüksek ROI'li ASO hamlelerinden biri — ve nasıl doğru yapılır.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">+35%</span>
+      <span class="stat-label">ortalama dönüşüm artışı</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">%65</span>
+      <span class="stat-label">indirmeler aramadan</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">5</span>
+      <span class="stat-label">öncelikli dil</span>
+    </div>
+  </div>
+</section>
+
+<div class="container" style="padding-top:60px">
+
+  <section class="section">
+    <div class="section-label">Neden önemli</div>
+    <h2>Ekran görüntüleri sessiz satış temsilcindir</h2>
+    <p>Biri uygulamanı arama yoluyla bulduğunda ilk gördüğü şey ikon ve ekran görüntüleri — açıklama metnini okumadan önce. Farklı dil konuşan pazarlarda İngilizce ekran görüntüleri anında bir kopukluk yaratır.</p>
+    <p>Almanya'da bir uygulama arayan kullanıcı iki sonuç görür. Birinde Almanca ekran görüntüleri ve tanıdık ifadeler var. Diğerinde İngilizce metin. Almancayı tıklar. Uygulamana hiç şans tanımaz.</p>
+    <div class="callout green">
+      <div class="callout-title">Temel içgörü</div>
+      <p>Ekran görüntüsü yerelleştirmesi sadece mevcut trafikten gelen dönüşümü artırmaz — tamamen yeni keyword alanı açar. Apple, ekran görüntüsü başlıklarını metadata'nın bir parçası olarak indexler; bu yüzden yerelleştirilmiş ekran görüntüleri o dildeki arama sıralamalarını doğrudan etkiler.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Pazara göre ROI</div>
+    <h2>En çok hangi diller fark yaratıyor</h2>
+    <p>Tüm pazarlar yerelleştirmeye eşit tepki vermez. Yerel dilli ekran görüntülerinin İngilizce'yi tutarlı biçimde geride bıraktığı diller bunlar.</p>
+    <div style="margin:26px 0">
+      <div class="impact-row"><span class="impact-label">Almanca (de-DE)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:88%"></div></div><span class="impact-pct">+40%</span></div>
+      <div class="impact-row"><span class="impact-label">Fransızca (fr-FR)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:82%"></div></div><span class="impact-pct">+38%</span></div>
+      <div class="impact-row"><span class="impact-label">Japonca (ja)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:95%"></div></div><span class="impact-pct">+55%</span></div>
+      <div class="impact-row"><span class="impact-label">İspanyolca (es-ES)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:75%"></div></div><span class="impact-pct">+30%</span></div>
+      <div class="impact-row"><span class="impact-label">Türkçe (tr)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:70%"></div></div><span class="impact-pct">+28%</span></div>
+      <div class="impact-row"><span class="impact-label">Korece (ko)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:90%"></div></div><span class="impact-pct">+48%</span></div>
+      <div class="impact-row"><span class="impact-label">Portekizce (pt-BR)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:68%"></div></div><span class="impact-pct">+25%</span></div>
+    </div>
+    <div class="callout">
+      <div class="callout-title">Not</div>
+      <p>Bu rakamlar yayımlanmış ASO vaka çalışmalarına dayanan sektör ortalamalarıdır. Gerçek artış kategorine, uygulama kalitene ve mevcut temel dönüşüm oranına göre değişir.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Ne yerelleştirilmeli</div>
+    <h2>Sadece çeviri değil</h2>
+    <p>Etkili ekran görüntüsü yerelleştirmesinin üç katmanı vardır. Geliştiricilerin çoğu yalnızca ilkini yapar.</p>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-icon">🔤</span>
+        <h3>Metin çevirisi</h3>
+        <p>Başlık metni ve ekran görüntüsünde görünen UI metinlerini çevir. Kelimesi kelimesine değil, doğal yerel ifadeler kullan.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🎯</span>
+        <h3>Fayda çerçevelemesi</h3>
+        <p>ABD'de yankı uyandıran bir mesaj Almanya'da aynı etkiyi yaratmayabilir. "Zaman kazan" evrensel çalışır ama "Veriler cihazında kalır" gizlilik odaklı pazarlarda daha güçlü yapar.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🌍</span>
+        <h3>Kültürel bağlam</h3>
+        <p>Para birimi sembolleri, tarih formatları, yerel anlam taşıyan örnekler. € kullanan bir pazarda $ tutarı göstermek ince bir sürtüşme yaratır.</p>
+      </div>
+    </div>
+    <div class="example">
+      <span class="example-label">Örnek — aynı özellik, farklı çerçeveleme</span>
+      <span class="ex-locale">en-US:</span> <span class="ex-text">"See your revenue at a glance"</span><br>
+      <span class="ex-locale">de-DE:</span> <span class="ex-text">"Einnahmen auf einen Blick"</span> <span class="ex-note">// direkt çeviri burada işe yarıyor</span><br>
+      <span class="ex-locale">ja:   </span> <span class="ex-text">"収益をひと目で確認"</span> <span class="ex-note">// kısa ve net</span><br>
+      <span class="ex-locale">tr:   </span> <span class="ex-text">"Gelirini anında gör"</span> <span class="ex-note">// TR'de samimi ton daha iyi çalışıyor</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Öncelik sırası</div>
+    <h2>Her şeyi yapamadığında nereden başlamalı</h2>
+    <p>Zamanın kısıtlıysa bu sırayla yerelleştir. AppConsol verilerini kullan — en fazla kurulum olan ama en düşük dönüşüm oranına sahip pazarlarına bak.</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Dil</th><th>Neden yüksek öncelikli</th><th>Etki</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>de-DE</strong><br><span style="color:var(--text3);font-size:12px">Almanca</span></td><td>Avrupa'nın en büyük İngilizce olmayan pazarı. Yüksek harcama kapasitesi, güçlü yerel dil tercihi.</td><td><span class="badge badge-high">Yüksek</span></td></tr>
+        <tr><td><strong>fr-FR</strong><br><span style="color:var(--text3);font-size:12px">Fransızca</span></td><td>Avrupa'nın ikinci büyük pazarı. Kuzey Avrupa'ya kıyasla İngilizce yeterliliği düşük.</td><td><span class="badge badge-high">Yüksek</span></td></tr>
+        <tr><td><strong>ja</strong><br><span style="color:var(--text3);font-size:12px">Japonca</span></td><td>Küresel olarak kullanıcı başına en yüksek App Store harcaması. İngilizce ekran görüntüleri burada en kötü performansı gösteriyor.</td><td><span class="badge badge-high">Yüksek</span></td></tr>
+        <tr><td><strong>es-MX</strong><br><span style="color:var(--text3);font-size:12px">İspanyolca (MX)</span></td><td>Hem Meksika'yı hem büyük bölüm Latin Amerika'yı kapsar. Büyüyen pazar.</td><td><span class="badge badge-med">Orta</span></td></tr>
+        <tr><td><strong>pt-BR</strong><br><span style="color:var(--text3);font-size:12px">Portekizce (BR)</span></td><td>Latin Amerika'nın en büyük App Store pazarı. Yüksek hacim, yerelleştirmeye orta düzeyde duyarlı.</td><td><span class="badge badge-med">Orta</span></td></tr>
+        <tr><td><strong>ko</strong><br><span style="color:var(--text3);font-size:12px">Korece</span></td><td>Yerelleştirmeye son derece duyarlı pazar. İngilizce ekran görüntüleri çok kötü performans gösteriyor.</td><td><span class="badge badge-med">Orta</span></td></tr>
+        <tr><td><strong>zh-Hans</strong><br><span style="color:var(--text3);font-size:12px">Çince (Basitleştirilmiş)</span></td><td>Devasa pazar ama çok rekabetçi. Yerelleştirme öne çıkmanın değil, var olabilmenin gereği.</td><td><span class="badge badge-low">Karmaşık</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">ASO açısı</div>
+    <h2>Apple ekran görüntüsü metnini nasıl kullanıyor</h2>
+    <p>Çoğu geliştiricinin gözden kaçırdığı kısım bu: Apple'ın arama algoritması ekran görüntülerinde görünen metni indexler. Başlık katmanları, UI metni, özellik başlıkları — hepsi taranır.</p>
+    <div class="callout green">
+      <div class="callout-title">Pratik anlamı</div>
+      <p>Almanca ekran görüntülerinde "Einnahmen & Downloads tracken" yazıyorsa Alman App Store için yeni indexlenmiş keywordler ekliyorsun — 100 karakterlik keyword alanından düşülmeden. Bunlar özünde ücretsiz keyword alanı.</p>
+    </div>
+    <div class="example">
+      <span class="example-label">Keyword değeri örneği</span>
+      <span class="ex-locale">Ekran görüntüsü başlığı (de-DE):</span><br>
+      <span class="ex-text">"Einnahmen & Downloads auf einen Blick"</span><br><br>
+      <span class="ex-note">→ Indexlenen keywordler: einnahmen, downloads, blick, app analytics, umsatz...</span><br>
+      <span class="ex-note">→ Hiçbiri keyword alanı karakteri harcamıyor</span><br>
+      <span class="ex-note">→ Apple ekran içi metni metadata sinyali olarak değerlendiriyor</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Uygulama</div>
+    <h2>App Store Connect'te nasıl yapılır</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>Temel ekran görüntüsü setini oluştur</h3><p>Birincil dilinle (genellikle İngilizce) başla. Bunlar şablonun olacak. Diğer dillere kopyalamadan önce tasarımı doğru hale getir.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>Düzenlenebilir dosya olarak dışa aktar</h3><p>Ekran görüntülerini katmanlı dosya olarak tut (Figma, Sketch veya PSD). Metin katmanları arka plandan ayrı olsun — bu çeviriyi 10 kat hızlandırır.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>Metni çevir — makine çevirisini direkt kullanma</h3><p>DeepL'i ilk geçiş için kullan, ardından mümkünse ana dil konuşanıyla gözden geçir. Karakter uzunluğuna dikkat et — Almanca metin İngilizce'den genellikle %30 daha uzundur ve layout'u bozabilir.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h3>Pazara göre mesajı adapte et</h3><p>Sadece çevirme — o pazarda hangi faydanın önemli olduğunu düşün. Almanya'da gizlilik öne çıkar. Türkiye ve Brezilya'da değer ve tasarruf. Hız ve verimlilik her yerde işe yarar.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-content"><h3>App Store Connect'te her dil altına yükle</h3><p>Uygulamanı → Sürüm Bilgileri → dil bölümüne git. Her dilin kendi ekran görüntüsü slotları var. Bir dil için yüklemezsen Apple varsayılan dilindekileri kullanır.</p></div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-content"><h3>Etkiyi AppConsol'da takip et</h3><p>Güncelleme yayına girdikten sonra 2-4 hafta boyunca ülke bazlı dağılımını izle. Güncellediğin dillerde dönüşüm oranlarının iyileştiğini, hatta sıralamalar yükseldikçe yeni ülkelerin kurulum listene girdiğini görmelisin.</p></div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Sık yapılan hatalar</div>
+    <h2>Yapılmaması gerekenler</h2>
+    <ul class="checklist">
+      <li><span class="check-icon" style="background:rgba(229,80,57,0.1);color:var(--accent3);">✕</span><div><strong style="color:var(--text)">Makine çevirisini direkt kullanmak</strong><br>DeepL dilbilgisel açıdan doğru metin üretir ama ana dil konuşanları hemen fark eder. İfadeler doğal gelmiyor. Başlangıç noktası olarak kullan, son sonuç olarak değil.</div></li>
+      <li><span class="check-icon" style="background:rgba(229,80,57,0.1);color:var(--accent3);">✕</span><div><strong style="color:var(--text)">Sadece başlıkları çevirip UI'ı bırakmak</strong><br>Başlık çevrilmişse ama ekrandaki uygulama arayüzü hâlâ İngilizce görünüyorsa tutarsız bir izlenim bırakır. Ya her şeyi yerelleştir ya da çok fazla metin içermeyen soyut ekran görüntüleri kullan.</div></li>
+      <li><span class="check-icon" style="background:rgba(229,80,57,0.1);color:var(--accent3);">✕</span><div><strong style="color:var(--text)">Metin taşmasını görmezden gelmek</strong><br>Almanca, Fince ve Hollandaca kelimeler genellikle İngilizce karşılıklarından çok daha uzundur. Dışa aktarmadan önce çevrilen metnin tasarıma sığdığını her zaman kontrol et.</div></li>
+      <li><span class="check-icon" style="background:rgba(229,80,57,0.1);color:var(--accent3);">✕</span><div><strong style="color:var(--text)">Uygulamanın desteklemediği diller için yerelleştirme yapmak</strong><br>Kullanıcı Almanca ekran görüntüsüne bakıp kuruyorsa ama uygulama arayüzü İngilizce kalıyorsa negatif yorum ve terk elde edilir. Sadece uygulamanın gerçekten konuştuğu diller için yerelleştir.</div></li>
+      <li><span class="check-icon" style="background:rgba(229,80,57,0.1);color:var(--accent3);">✕</span><div><strong style="color:var(--text)">UI değişikliklerinden sonra ekran görüntülerini güncellememekin</strong><br>Mevcut uygulamadan farklı bir UI gösteren eski ekran görüntüleri güven aşındırır. Her büyük güncellemeyle ekran görüntüsü doğruluğunu gözden geçirmek için hatırlatıcı koy.</div></li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Hızlı kazanım</div>
+    <h2>Bir saatin varsa</h2>
+    <p>Her şeyi hemen yerelleştirmek zorunda değilsin. Bir saatde yapabileceğin en yüksek kaldıraçlı şey:</p>
+    <div class="callout green">
+      <div class="callout-title">1 saatlik yerelleştirme sprinti</div>
+      <p>AppConsol'un ülke dağılımından İngilizce olmayan en büyük pazarını seç. O dilde yalnızca ilk iki ekran görüntüsünün başlık metnini DeepL ile çevir. App Store Connect'e yükle. Bu kadar. İki yerelleştirilmiş ekran görüntüsü sıfır yerelleştirilmiş ekran görüntüsünü her zaman geçer — arama sonuçlarında arama yapmadan görünen ilk iki ekran görüntüsü bunlar.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">AppConsol entegrasyonu</div>
+    <h2>Verilerini öncelik belirlemede nasıl kullanırsın</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>Trends'teki Ülke Dağılımını aç</h3><p>Kurulum sayısına göre sırala. İngilizce olmayan ülkelerden ilk 10'da olanları not al — bunlar seni organik olarak zaten bulan pazarlar.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>ASO sekmesinde yerelleştirilmemiş pazarları kontrol et</h3><p>"Unlocalized Market" kuralı, yerelleştirme eksik olduğun yüksek trafikli ülkeleri gösterir. Düşük puan, yakalamadığın trafik olduğu anlamına gelir.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>Büyüme Önerilerinde ülke sinyallerini takip et</h3><p>"Almanya %45 büyüyor — ekran görüntülerini yerelleştir" gibi bir öneri çıktığında bu, o pazarın ivme kazandığının ve yerelleştirme yatırımına hazır olduğunun doğrudan sinyalidir.</p></div></div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <p>AppConsol Rehberi · <a href="#">Uygulamaya dön</a></p>
+  <p style="margin-top:6px;">Bu rehberdeki veriler 2026 itibarıyla yayımlanmış ASO sektör kıyaslamalarını yansıtmaktadır.</p>
+</footer>
+
+</div>
+
+<!-- ===================== ENGLISH ===================== -->
+<div id="lang-en" class="lang-content">
+
+<section class="hero">
+  <div class="hero-tag">AppConsol Guide</div>
+  <h1>Screenshot<br><span>Localization</span></h1>
+  <p class="hero-sub">Why translating your screenshots is one of the highest-ROI moves in ASO — and how to do it right.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">+35%</span><span class="stat-label">avg conversion lift</span></div>
+    <div class="stat"><span class="stat-num">65%</span><span class="stat-label">downloads from search</span></div>
+    <div class="stat"><span class="stat-num">5</span><span class="stat-label">key locales to target</span></div>
+  </div>
+</section>
+
+<div class="container" style="padding-top:60px">
+
+  <section class="section">
+    <div class="section-label">Why it matters</div>
+    <h2>Screenshots are your silent salesperson</h2>
+    <p>When someone finds your app through search, the first thing they see is your icon and screenshots — before they read a single word of your description. In markets that speak a different language, English screenshots create an immediate disconnect.</p>
+    <p>A user in Germany searching for an app sees two results. One has German screenshots with familiar phrasing. The other has English text. They tap the German one. Your app never gets the chance.</p>
+    <div class="callout green">
+      <div class="callout-title">The core insight</div>
+      <p>Screenshot localization doesn't just improve conversion from existing traffic — it unlocks entirely new keyword territory. Apple indexes your screenshot captions as part of your metadata, so localized screenshots directly boost search rankings in that language.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">ROI by market</div>
+    <h2>Which locales move the needle most</h2>
+    <p>Not all markets respond equally to localization. These are the locales where native-language screenshots consistently outperform English.</p>
+    <div style="margin:26px 0">
+      <div class="impact-row"><span class="impact-label">German (de-DE)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:88%"></div></div><span class="impact-pct">+40%</span></div>
+      <div class="impact-row"><span class="impact-label">French (fr-FR)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:82%"></div></div><span class="impact-pct">+38%</span></div>
+      <div class="impact-row"><span class="impact-label">Japanese (ja)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:95%"></div></div><span class="impact-pct">+55%</span></div>
+      <div class="impact-row"><span class="impact-label">Spanish (es-ES)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:75%"></div></div><span class="impact-pct">+30%</span></div>
+      <div class="impact-row"><span class="impact-label">Turkish (tr)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:70%"></div></div><span class="impact-pct">+28%</span></div>
+      <div class="impact-row"><span class="impact-label">Korean (ko)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:90%"></div></div><span class="impact-pct">+48%</span></div>
+      <div class="impact-row"><span class="impact-label">Portuguese (pt-BR)</span><div class="impact-bar-wrap"><div class="impact-bar" style="width:68%"></div></div><span class="impact-pct">+25%</span></div>
+    </div>
+    <div class="callout">
+      <div class="callout-title">Note</div>
+      <p>These figures are industry averages based on published ASO case studies. Your actual lift will vary by category, app quality, and existing baseline conversion rate.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">What to localize</div>
+    <h2>It's more than just translation</h2>
+    <p>Effective screenshot localization has three layers. Most developers only do the first one.</p>
+    <div class="card-grid">
+      <div class="card"><span class="card-icon">🔤</span><h3>Text translation</h3><p>Translate caption text and UI copy visible in the screenshots. Use native phrasing — not literal word-for-word translation.</p></div>
+      <div class="card"><span class="card-icon">🎯</span><h3>Benefit framing</h3><p>The headline benefit that resonates in the US may not land in Germany. "Save time" works universally, but "No data leaves your device" hits harder in privacy-focused markets.</p></div>
+      <div class="card"><span class="card-icon">🌍</span><h3>Cultural context</h3><p>Currency symbols, date formats, examples that make sense locally. Showing a $ amount in a market that uses € creates subtle friction.</p></div>
+    </div>
+    <div class="example">
+      <span class="example-label">Example — same feature, different framing</span>
+      <span class="ex-locale">en-US:</span> <span class="ex-text">"See your revenue at a glance"</span><br>
+      <span class="ex-locale">de-DE:</span> <span class="ex-text">"Einnahmen auf einen Blick"</span> <span class="ex-note">// literal works here</span><br>
+      <span class="ex-locale">ja:   </span> <span class="ex-text">"収益をひと目で確認"</span> <span class="ex-note">// concise, direct</span><br>
+      <span class="ex-locale">tr:   </span> <span class="ex-text">"Gelirini anında gör"</span> <span class="ex-note">// informal tone works better in TR</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Priority framework</div>
+    <h2>Where to start when you can't do everything</h2>
+    <p>If you have limited time, localize in this order. Your AppConsol data should guide this — look at which markets have the most installs with the worst conversion rates.</p>
+    <table class="data-table">
+      <thead><tr><th>Locale</th><th>Why it's high priority</th><th>Impact</th></tr></thead>
+      <tbody>
+        <tr><td><strong>de-DE</strong><br><span style="color:var(--text3);font-size:12px">German</span></td><td>Largest non-English market in Europe. High App Store spending with strong native language preference.</td><td><span class="badge badge-high">High</span></td></tr>
+        <tr><td><strong>fr-FR</strong><br><span style="color:var(--text3);font-size:12px">French</span></td><td>Second largest European market. Below-average English proficiency compared to Northern Europe.</td><td><span class="badge badge-high">High</span></td></tr>
+        <tr><td><strong>ja</strong><br><span style="color:var(--text3);font-size:12px">Japanese</span></td><td>Highest App Store spend per user globally. English screenshots perform significantly worse here than any other major market.</td><td><span class="badge badge-high">High</span></td></tr>
+        <tr><td><strong>es-MX</strong><br><span style="color:var(--text3);font-size:12px">Spanish (MX)</span></td><td>Covers both Mexico and much of Latin America. Growing market with rapidly increasing App Store activity.</td><td><span class="badge badge-med">Medium</span></td></tr>
+        <tr><td><strong>pt-BR</strong><br><span style="color:var(--text3);font-size:12px">Portuguese (BR)</span></td><td>Brazil is the largest App Store market in Latin America. High volume, moderate conversion sensitivity.</td><td><span class="badge badge-med">Medium</span></td></tr>
+        <tr><td><strong>ko</strong><br><span style="color:var(--text3);font-size:12px">Korean</span></td><td>Extremely localization-sensitive. English screenshots perform poorly. High spending if you can break through.</td><td><span class="badge badge-med">Medium</span></td></tr>
+        <tr><td><strong>zh-Hans</strong><br><span style="color:var(--text3);font-size:12px">Chinese (Simplified)</span></td><td>Massive market but highly competitive. Localization is table stakes — not a differentiator, but a prerequisite.</td><td><span class="badge badge-low">Complex</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">The ASO angle</div>
+    <h2>How Apple uses your screenshot text</h2>
+    <p>This is the part most developers miss: Apple's search algorithm indexes the text visible in your screenshots. Caption overlays, UI text, feature headlines — all of it gets crawled.</p>
+    <div class="callout green">
+      <div class="callout-title">What this means practically</div>
+      <p>If your German screenshots say "Einnahmen & Downloads tracken" in the caption, you're adding new indexed keywords for the German App Store — keywords that aren't counted against your 100-character keyword field limit. It's essentially free keyword real estate.</p>
+    </div>
+    <div class="example">
+      <span class="example-label">Keyword value example</span>
+      <span class="ex-locale">Screenshot caption (de-DE):</span><br>
+      <span class="ex-text">"Einnahmen & Downloads auf einen Blick"</span><br><br>
+      <span class="ex-note">→ Indexes for: einnahmen, downloads, blick, app analytics, umsatz...</span><br>
+      <span class="ex-note">→ None of these cost keyword field characters</span><br>
+      <span class="ex-note">→ Apple weights in-screenshot text as metadata signal</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Implementation</div>
+    <h2>How to do it in App Store Connect</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>Create your base screenshot set</h3><p>Start with your primary language (usually English). These become your template. Get the design right before duplicating across locales.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>Export as editable files</h3><p>Keep your screenshots as layered files (Figma, Sketch, or PSD). Text layers should be separate from background layers — this makes translation 10× faster.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>Translate the copy — don't just machine-translate</h3><p>Use DeepL for a first pass, then review with a native speaker if possible. Watch for character length — German text is typically 30% longer than English and can break layouts.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h3>Adapt the framing for the market</h3><p>Don't just translate — consider what benefit matters most in that market. Privacy resonates in Germany. Value and savings resonate in Turkey and Brazil. Speed works globally.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-content"><h3>Upload in App Store Connect under each locale</h3><p>Go to your app → Version Information → scroll to the locale section. Each locale has its own screenshot slots. If you don't upload for a locale, Apple uses your default language screenshots.</p></div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-content"><h3>Track the impact in AppConsol</h3><p>After your update goes live, watch your country breakdown over the following 2–4 weeks. You should see conversion rates improve in the locales you updated.</p></div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Common mistakes</div>
+    <h2>What not to do</h2>
+    <ul class="checklist">
+      <li><span class="check-icon" style="background:rgba(229,80,57,0.1);color:var(--accent3);">✕</span><div><strong style="color:var(--text)">Using machine translation directly</strong><br>DeepL produces grammatically correct text, but native speakers can spot it immediately. Use as a starting point, not the final result.</div></li>
+      <li><span class="check-icon" style="background:rgba(229,80,57,0.1);color:var(--accent3);">✕</span><div><strong style="color:var(--text)">Translating only the captions, not the UI</strong><br>If the app UI in the screenshot shows English but the caption is translated, it looks inconsistent. Either localize everything or use abstract screenshots.</div></li>
+      <li><span class="check-icon" style="background:rgba(229,80,57,0.1);color:var(--accent3);">✕</span><div><strong style="color:var(--text)">Ignoring text overflow</strong><br>German, Finnish, and Dutch words are often significantly longer than English equivalents. Always check that translated text fits the design before exporting.</div></li>
+      <li><span class="check-icon" style="background:rgba(229,80,57,0.1);color:var(--accent3);">✕</span><div><strong style="color:var(--text)">Localizing for languages your app doesn't support</strong><br>If a user installs based on German screenshots but your app UI is English-only, you'll get negative reviews and churn. Localize screenshots for languages your app actually speaks.</div></li>
+      <li><span class="check-icon" style="background:rgba(229,80,57,0.1);color:var(--accent3);">✕</span><div><strong style="color:var(--text)">Not updating screenshots after UI changes</strong><br>Outdated screenshots that show a different UI erode trust. Set a reminder to review screenshot accuracy with each major update.</div></li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Quick wins</div>
+    <h2>If you have one hour</h2>
+    <div class="callout green">
+      <div class="callout-title">The 1-hour localization sprint</div>
+      <p>Pick your top non-English market from AppConsol's country breakdown. Translate just the caption text on your first two screenshots into that language using DeepL. Upload them to App Store Connect. Two localized screenshots beat zero every time — and the first two are what users see in search results without tapping through.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">AppConsol integration</div>
+    <h2>How to use your data to prioritize</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>Open the Country Breakdown in Trends</h3><p>Sort by installs. Note which non-English countries are in your top 10 — these are markets already finding you organically.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>Check your ASO score for unlocalized markets</h3><p>The "Unlocalized Market" rule shows you which high-traffic countries you're missing localization for. A low score here means there's traffic you're not capturing.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>Watch Growth Insights for country signals</h3><p>When an insight fires like "Germany is growing 45% — localize your screenshots," that's a direct signal that a specific market is ready for localization investment.</p></div></div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <p>AppConsol Guide · <a href="#">Back to app</a></p>
+  <p style="margin-top:6px;">Data in this guide reflects published ASO industry benchmarks as of 2026.</p>
+</footer>
+
+</div>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('lang-' + lang).classList.add('active');
+  document.querySelector('[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
