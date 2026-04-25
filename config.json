@@ -9,6 +9,7 @@
       "messageEN": "",
       "icon": "antenna.radiowaves.left.and.right",
       "color": "red",
+      "placement": "settings",
       "active": true,
       "style": {
         "size": "small",
@@ -28,6 +29,7 @@
       "messageEN": "Thank you for choosing AppConsol",
       "icon": "heart.fill",
       "color": "pink",
+      "placement": "settings",
       "active": true,
       "style": {
         "size": "small",
@@ -48,11 +50,33 @@
       "icon": "book.fill",
       "color": "green",
       "url": "https://barisgungor23-beep.github.io/AppConsol/guides/",
+      "placement": "settings",
       "active": true,
       "style": {
         "size": "small",
         "layout": "horizontal",
         "bgColor": "green",
+        "cornerRadius": 20,
+        "showMessage": true,
+        "animation": "none"
+      }
+    },
+    {
+      "id": "collaboration",
+      "type": "link",
+      "titleTR": "Reklam & İşbirliği",
+      "titleEN": "Advertise & Collaborate",
+      "messageTR": "Bizimle iletişime geç",
+      "messageEN": "Get in touch with us",
+      "icon": "envelope.fill",
+      "color": "blue",
+      "url": "mailto:support.appconsol@gmail.com?subject=Reklam%20%26%20%C4%B0%C5%9Fbirli%C4%9Fi",
+      "placement": "settings",
+      "active": true,
+      "style": {
+        "size": "small",
+        "layout": "horizontal",
+        "bgColor": "blue",
         "cornerRadius": 20,
         "showMessage": true,
         "animation": "none"
@@ -68,6 +92,7 @@
       "icon": "gift.fill",
       "color": "purple",
       "code": "1MONTH",
+      "placement": "overview",
       "active": false,
       "style": {
         "size": "small",
@@ -79,34 +104,16 @@
       }
     },
     {
-      "id": "collaboration",
-      "type": "link",
-      "titleTR": "Reklam & İşbirliği",
-      "titleEN": "Advertise & Collaborate",
-      "messageTR": "Bizimle iletişime geç",
-      "messageEN": "Get in touch with us",
-      "icon": "envelope.fill",
-      "color": "blue",
-      "url": "mailto:support.appconsol@gmail.com?subject=Reklam%20%26%20%C4%B0%C5%9Fbirli%C4%9Fi",
-      "active": true,
-      "style": {
-        "size": "small",
-        "layout": "horizontal",
-        "bgColor": "blue",
-        "cornerRadius": 20,
-        "showMessage": true,
-        "animation": "none"
-      }
-    },
-    {
-      "id": "version_220",
+      "id": "version_230",
       "type": "link",
       "titleTR": "v2.3.0 Şimdi Yayında",
-      "titleEN": "v2.2.0 Now Live",
+      "titleEN": "v2.3.0 Now Live",
       "messageTR": "Güncelle ve yenilikleri keşfet",
       "messageEN": "Update now and discover what's new",
       "icon": "checkmark.circle.fill",
       "color": "teal",
+      "url": "https://apps.apple.com/us/app/appconsol-sales-analytics/id6761332241",
+      "placement": "overview",
       "active": true,
       "style": {
         "size": "small",
@@ -115,8 +122,7 @@
         "cornerRadius": 20,
         "showMessage": true,
         "animation": "none"
-      },
-      "url": "https://apps.apple.com/us/app/appconsol-sales-analytics/id6761332241"
+      }
     },
     {
       "id": "rate_us",
@@ -128,6 +134,7 @@
       "icon": "star.fill",
       "color": "yellow",
       "url": "https://apps.apple.com/app/id6761332241?action=write-review",
+      "placement": "settings",
       "active": true,
       "style": {
         "size": "small",
