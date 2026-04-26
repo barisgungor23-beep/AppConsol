@@ -104,16 +104,16 @@
       }
     },
     {
-      "id": "version_230",
+      "id": "version_231",
       "type": "link",
-      "titleTR": "v2.3.0 Şimdi Yayında",
-      "titleEN": "v2.3.0 Now Live",
+      "titleTR": "v2.3.1 Şimdi Yayında",
+      "titleEN": "v2.3.1 Now Live",
       "messageTR": "Güncelle ve yenilikleri keşfet",
       "messageEN": "Update now and discover what's new",
       "icon": "checkmark.circle.fill",
       "color": "teal",
       "url": "https://apps.apple.com/us/app/appconsol-sales-analytics/id6761332241",
-      "placement": "overview",
+      "placement": "settings",
       "active": true,
       "style": {
         "size": "small",
@@ -134,13 +134,13 @@
       "icon": "star.fill",
       "color": "yellow",
       "url": "https://apps.apple.com/app/id6761332241?action=write-review",
-      "placement": "settings",
+      "placement": "overview",
       "active": true,
       "style": {
         "size": "small",
         "layout": "horizontal",
         "bgColor": "yellow",
-        "cornerRadius": 20,
+        "cornerRadius": 24,
         "showMessage": true,
         "animation": "shimmer"
       }
