@@ -72,7 +72,7 @@
       "color": "blue",
       "url": "mailto:support.appconsol@gmail.com?subject=Reklam%20%26%20%C4%B0%C5%9Fbirli%C4%9Fi",
       "placement": "settings",
-      "active": true,
+      "active": false,
       "style": {
         "size": "small",
         "layout": "horizontal",
@@ -104,25 +104,25 @@
       }
     },
     {
-      "id": "version_231",
-      "type": "link",
-      "titleTR": "v2.3.1 Şimdi Yayında",
-      "titleEN": "v2.3.1 Now Live",
-      "messageTR": "Güncelle ve yenilikleri keşfet",
-      "messageEN": "Update now and discover what's new",
-      "icon": "checkmark.circle.fill",
-      "color": "teal",
-      "url": "https://apps.apple.com/us/app/appconsol-sales-analytics/id6761332241",
-      "placement": "settings",
-      "active": true,
-      "style": {
-        "size": "small",
-        "layout": "horizontal",
-        "bgColor": "teal",
-        "cornerRadius": 20,
-        "showMessage": true,
-        "animation": "none"
-      }
+  "id": "version_233",
+  "type": "link",
+  "titleTR": "v2.3.3 Yayında - Hemen Güncelle",
+  "titleEN": "v2.3.3 Live - Update Now",
+  "messageTR": "Önemli düzeltmeler içeriyor. App Store'dan güncelle.",
+  "messageEN": "Critical fixes included. Update from the App Store.",
+  "icon": "exclamationmark.arrow.triangle.2.circlepath",
+  "color": "red",
+  "url": "https://apps.apple.com/app/id6761332241",
+  "placement": "overview",
+  "active": true,
+  "style": {
+    "size": "small",
+    "layout": "horizontal",
+    "bgColor": "red",
+    "cornerRadius": 20,
+    "showMessage": true,
+    "animation": "shimmer"
+  }
     },
     {
       "id": "rate_us",
@@ -134,7 +134,7 @@
       "icon": "star.fill",
       "color": "yellow",
       "url": "https://apps.apple.com/app/id6761332241?action=write-review",
-      "placement": "overview",
+      "placement": "settings",
       "active": true,
       "style": {
         "size": "small",
