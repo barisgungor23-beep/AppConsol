@@ -13,9 +13,6 @@
       "active": true,
       "style": {
         "size": "small",
-        "layout": "horizontal",
-        "bgColor": "red",
-        "cornerRadius": 24,
         "showMessage": false,
         "animation": "shimmer"
       }
@@ -33,11 +30,8 @@
       "active": false,
       "style": {
         "size": "small",
-        "layout": "horizontal",
-        "bgColor": "pink",
-        "cornerRadius": 20,
         "showMessage": true,
-        "animation": "shimmer"
+        "animation": "none"
       }
     },
     {
@@ -54,9 +48,6 @@
       "active": true,
       "style": {
         "size": "small",
-        "layout": "horizontal",
-        "bgColor": "green",
-        "cornerRadius": 20,
         "showMessage": true,
         "animation": "none"
       }
@@ -75,9 +66,6 @@
       "active": false,
       "style": {
         "size": "small",
-        "layout": "horizontal",
-        "bgColor": "blue",
-        "cornerRadius": 20,
         "showMessage": true,
         "animation": "none"
       }
@@ -96,33 +84,27 @@
       "active": false,
       "style": {
         "size": "small",
-        "layout": "horizontal",
-        "bgColor": "purple",
-        "cornerRadius": 20,
         "showMessage": true,
-        "animation": "shimmer"
+        "animation": "none"
       }
     },
     {
-  "id": "version_233",
-  "type": "link",
-  "titleTR": "v2.3.3 Yayında - Hemen Güncelle",
-  "titleEN": "v2.3.3 Live - Update Now",
-  "messageTR": "Önemli düzeltmeler içeriyor. App Store'dan güncelle.",
-  "messageEN": "Critical fixes included. Update from the App Store.",
-  "icon": "exclamationmark.arrow.triangle.2.circlepath",
-  "color": "red",
-  "url": "https://apps.apple.com/app/id6761332241",
-  "placement": "overview",
-  "active": true,
-  "style": {
-    "size": "small",
-    "layout": "horizontal",
-    "bgColor": "red",
-    "cornerRadius": 20,
-    "showMessage": true,
-    "animation": "shimmer"
-  }
+      "id": "version_233",
+      "type": "link",
+      "titleTR": "v2.3.3 Yayında - Hemen Güncelle",
+      "titleEN": "v2.3.3 Live - Update Now",
+      "messageTR": "Önemli düzeltmeler içeriyor. App Store'dan güncelle.",
+      "messageEN": "Critical fixes included. Update from the App Store.",
+      "icon": "exclamationmark.arrow.triangle.2.circlepath",
+      "color": "red",
+      "url": "https://apps.apple.com/app/id6761332241",
+      "placement": "overview",
+      "active": true,
+      "style": {
+        "size": "small",
+        "showMessage": true,
+        "animation": "none"
+      }
     },
     {
       "id": "rate_us",
@@ -138,11 +120,8 @@
       "active": true,
       "style": {
         "size": "small",
-        "layout": "horizontal",
-        "bgColor": "yellow",
-        "cornerRadius": 24,
         "showMessage": true,
-        "animation": "shimmer"
+        "animation": "none"
       }
     }
   ]
