@@ -30,7 +30,7 @@
       "icon": "heart.fill",
       "color": "pink",
       "placement": "settings",
-      "active": true,
+      "active": false,
       "style": {
         "size": "small",
         "layout": "horizontal",
