@@ -12,7 +12,7 @@
       "placement": "settings",
       "active": true,
       "style": {
-        "size": "small",
+        "size": "medium",
         "showMessage": false,
         "animation": "shimmer"
       }
@@ -30,7 +30,7 @@
       "placement": "settings",
       "active": true,
       "style": {
-        "size": "small",
+        "size": "medium",
         "showMessage": true,
         "animation": "none"
       }
@@ -65,7 +65,7 @@
       "placement": "settings",
       "active": true,
       "style": {
-        "size": "small",
+        "size": "medium",
         "showMessage": true,
         "animation": "none"
       }
@@ -137,7 +137,7 @@
       "placement": "settings",
       "active": true,
       "style": {
-        "size": "small",
+        "size": "medium",
         "showMessage": true,
         "animation": "none"
       }
