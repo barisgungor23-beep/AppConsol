@@ -18,6 +18,24 @@
       }
     },
     {
+      "id": "setup_guide",
+      "type": "link",
+      "titleTR": "Kurulumda mı takıldın?",
+      "titleEN": "Need help with setup?",
+      "messageTR": "API key oluşturmayı 3 dakikada öğren",
+      "messageEN": "Learn how to create your API key in 3 minutes",
+      "icon": "key.fill",
+      "color": "blue",
+      "url": "https://barisgungor23-beep.github.io/AppConsol/setup-guide.html",
+      "placement": "settings",
+      "active": true,
+      "style": {
+        "size": "small",
+        "showMessage": true,
+        "animation": "none"
+      }
+    },
+    {
       "id": "thank_you",
       "type": "announcement",
       "titleTR": "Değerlisiniz",
@@ -99,7 +117,7 @@
       "color": "red",
       "url": "https://apps.apple.com/app/id6761332241",
       "placement": "overview",
-      "active": true,
+      "active": false,
       "style": {
         "size": "small",
         "showMessage": true,
