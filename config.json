@@ -90,15 +90,14 @@
     },
     {
   "id": "promo_applyra",
-  "type": "promo",
+  "type": "link",
   "titleTR": "Applyra'da %50 İndirim — İlk Ay",
   "titleEN": "50% Off Applyra — First Month",
   "messageTR": "ASO ve anahtar kelime takibi. Kod: APPCONSOL",
   "messageEN": "ASO & keyword tracking. Code: APPCONSOL",
   "icon": "magnifyingglass.circle.fill",
   "color": "purple",
-  "code": "APPCONSOL",
-  "actionUrl": "https://applyra.com",
+  "url": "https://applyra.com",
   "placement": "overview",
   "active": true,
   "style": {
