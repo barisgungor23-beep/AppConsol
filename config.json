@@ -98,12 +98,13 @@
   "icon": "magnifyingglass.circle.fill",
   "color": "purple",
   "code": "APPCONSOL",
+  "actionUrl": "https://applyra.com",
   "placement": "overview",
   "active": true,
   "style": {
-    "size": "small",
+    "size": "medium",
     "showMessage": true,
-    "animation": "pulse"
+    "animation": "shimmer"
       }
     },
     {
