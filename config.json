@@ -89,21 +89,21 @@
       }
     },
     {
-      "id": "promo_1month",
-      "type": "promo",
-      "titleTR": "1 Aylık Ücretsiz Premium",
-      "titleEN": "1 Month Free Premium",
-      "messageTR": "Kod: 1MONTH",
-      "messageEN": "Code: 1MONTH",
-      "icon": "gift.fill",
-      "color": "purple",
-      "code": "1MONTH",
-      "placement": "overview",
-      "active": false,
-      "style": {
-        "size": "small",
-        "showMessage": true,
-        "animation": "none"
+  "id": "promo_applyra",
+  "type": "promo",
+  "titleTR": "Applyra'da %50 İndirim — İlk Ay",
+  "titleEN": "50% Off Applyra — First Month",
+  "messageTR": "ASO ve anahtar kelime takibi. Kod: APPCONSOL",
+  "messageEN": "ASO & keyword tracking. Code: APPCONSOL",
+  "icon": "magnifyingglass.circle.fill",
+  "color": "purple",
+  "code": "APPCONSOL",
+  "placement": "overview",
+  "active": true,
+  "style": {
+    "size": "small",
+    "showMessage": true,
+    "animation": "pulse"
       }
     },
     {
