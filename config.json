@@ -99,7 +99,7 @@
       "color": "purple",
       "code": "1MONTH",
       "placement": "overview",
-      "active": false,
+      "active": true,
       "style": {
         "size": "small",
         "showMessage": true,
