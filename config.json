@@ -99,7 +99,7 @@
   "color": "purple",
   "url": "https://www.applyra.io/dashboard",
   "placement": "overview",
-  "active": true,
+  "active": false,
   "style": {
     "size": "medium",
     "showMessage": true,
