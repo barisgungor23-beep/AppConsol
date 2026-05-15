@@ -89,6 +89,24 @@
       }
     },
     {
+  "id": "promo_indie2026",
+  "type": "promo",
+  "titleTR": "🚀 Yıllık Plan %50 İndirim — Sınırlı Süre",
+  "titleEN": "🚀 50% Off Yearly Plan — Limited Time",
+  "messageTR": "Indie geliştiriciler için özel fırsat. Kod: INDIE2026",
+  "messageEN": "Exclusive offer for indie developers. Code: INDIE2026",
+  "icon": "tag.fill",
+  "color": "purple",
+  "code": "INDIE2026",
+  "placement": "overview",
+  "active": true,
+  "style": {
+    "size": "medium",
+    "showMessage": true,
+    "animation": "shimmer"
+  }
+},
+    {
   "id": "promo_applyra",
   "type": "link",
   "titleTR": "Applyra'da %50 İndirim — İlk Ay",
