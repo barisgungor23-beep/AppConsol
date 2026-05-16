@@ -101,7 +101,7 @@
   "placement": "overview",
   "active": true,
   "style": {
-    "size": "medium",
+    "size": "small",
     "showMessage": true,
     "animation": "shimmer"
   }
