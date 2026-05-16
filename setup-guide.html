@@ -87,24 +87,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',syste
     <div class="sh">
       <div class="sn">1</div>
       <div class="sx">
-        <h3 data-en="Generate your Individual API key" data-tr="Individual API key oluşturun">Generate your Individual API key</h3>
-        <p data-en="Click your name in the top-right corner → Edit Profile → scroll down to the Individual API Key section → click Generate Key."
-           data-tr="Sağ üst köşedeki adınıza tıklayın → Edit Profile → Individual API Key bölümüne kadar aşağı kaydırın → Generate Key'e tıklayın.">Click your name in the top-right corner → Edit Profile → scroll down to the Individual API Key section → click Generate Key.</p>
+        <h3 data-en="Generate an API Key" data-tr="API Key Oluşturun">Generate an API Key</h3>
+        <p data-en="In App Store Connect, go to Users and Access → Integrations tab → App Store Connect API → Team Keys. Click the + button to generate a new key. Give it any name (e.g. 'AppConsol') and select the Admin access role."
+           data-tr="App Store Connect'te Users and Access → Integrations sekmesi → App Store Connect API → Team Keys bölümüne gidin. + butonuna tıklayarak yeni bir key oluşturun. Herhangi bir isim verin (ör. 'AppConsol') ve erişim rolü olarak Admin seçin.">In App Store Connect, go to Users and Access → Integrations tab → App Store Connect API → Team Keys. Click the + button to generate a new key. Give it any name (e.g. 'AppConsol') and select the Admin access role.</p>
       </div>
     </div>
     <div class="pa">
-      <span data-en="Your Name" data-tr="Adınız">Your Name</span>
+      <span>Users and Access</span>
       <span class="pa-a">›</span>
-      <span>Edit Profile</span>
+      <span>Integrations</span>
       <span class="pa-a">›</span>
-      <span>Individual API Key</span>
+      <span>App Store Connect API</span>
       <span class="pa-a">›</span>
-      <span>Generate Key</span>
+      <span>Team Keys</span>
+      <span class="pa-a">›</span>
+      <span>+</span>
     </div>
     <div class="tip">
-      <strong data-en="💡 Your account needs Admin role" data-tr="💡 Hesabınız Admin rolüne sahip olmalı">💡 Your account needs Admin role</strong>
-      <span data-en="Individual API keys inherit your account's permissions. Admin or Account Holder role is required to access sales and financial data."
-            data-tr="Individual API key'ler hesabınızın izinlerini devralır. Satış ve finansal verilere erişmek için Admin veya Account Holder rolü gereklidir.">Individual API keys inherit your account's permissions. Admin or Account Holder role is required to access sales and financial data.</span>
+      <strong data-en="💡 Choose Admin role" data-tr="💡 Admin rolünü seçin">💡 Choose Admin role</strong>
+      <span data-en="When creating the key, select 'Admin' as the access role. This is required to access sales and financial report data. Other roles (e.g. Developer, Marketing) won't have sufficient permissions."
+            data-tr="Key oluştururken erişim rolü olarak 'Admin' seçin. Satış ve finansal rapor verilerine erişmek için bu gereklidir. Diğer roller (ör. Developer, Marketing) yeterli izne sahip değildir.">When creating the key, select 'Admin' as the access role. This is required to access sales and financial report data. Other roles (e.g. Developer, Marketing) won't have sufficient permissions.</span>
     </div>
   </div>
 
@@ -114,45 +116,45 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',syste
       <div class="sn">2</div>
       <div class="sx">
         <h3 data-en="Collect your credentials" data-tr="Bilgilerinizi toplayın">Collect your credentials</h3>
-        <p data-en="You need four pieces of information from three different pages. Here's where to find each one:"
-           data-tr="Üç farklı sayfadan dört bilgiye ihtiyacınız var. Her birinin yeri:">You need four pieces of information from three different pages. Here's where to find each one:</p>
+        <p data-en="You need four pieces of information. All are on two pages in App Store Connect:"
+           data-tr="Dört bilgiye ihtiyacınız var. Hepsi App Store Connect'teki iki sayfada:">You need four pieces of information. All are on two pages in App Store Connect:</p>
       </div>
     </div>
 
     <div class="cr">
       <div class="cr-item">
-        <div class="cr-label">① Key ID</div>
+        <div class="cr-label">① Issuer ID</div>
         <div class="cr-desc"
-             data-en="On your Edit Profile page, in the Individual API Key table. It's the alphanumeric string next to your key."
-             data-tr="Edit Profile sayfanızda, Individual API Key tablosundaki alfanümerik değer.">On your Edit Profile page, in the Individual API Key table. It's the alphanumeric string next to your key.</div>
-        <div class="cr-path"><b>Edit Profile</b> › Individual API Key › KEY ID column</div>
+             data-en="On the same Integrations → App Store Connect API page. The Issuer ID is displayed at the very top of the page, with a Copy button next to it."
+             data-tr="Aynı Integrations → App Store Connect API sayfasında. Issuer ID sayfanın en üstünde, yanında Copy butonuyla gösterilir.">On the same Integrations → App Store Connect API page. The Issuer ID is displayed at the very top of the page, with a Copy button next to it.</div>
+        <div class="cr-path"><b>Users and Access</b> › Integrations › App Store Connect API › <b>Issuer ID</b> (top of page)</div>
       </div>
       <div class="cr-item">
-        <div class="cr-label" data-en="② Private Key (.p8 file)" data-tr="② Private Key (.p8 dosyası)">② Private Key (.p8 file)</div>
+        <div class="cr-label">② Key ID</div>
         <div class="cr-desc"
-             data-en='Same page — click "Download API Key" on the right side. This file can only be downloaded once.'
-             data-tr='Aynı sayfada — sağ taraftaki "Download API Key"e tıklayın. Bu dosya yalnızca bir kez indirilebilir.'>Same page — click "Download API Key" on the right side. This file can only be downloaded once.</div>
-        <div class="cr-path"><b>Edit Profile</b> › Individual API Key › Download API Key</div>
+             data-en="In the Team Keys table, find the key you just created. The Key ID is the short alphanumeric string in the KEY ID column."
+             data-tr="Team Keys tablosunda az önce oluşturduğunuz key'i bulun. Key ID, KEY ID sütunundaki kısa alfanümerik değerdir.">In the Team Keys table, find the key you just created. The Key ID is the short alphanumeric string in the KEY ID column.</div>
+        <div class="cr-path"><b>Team Keys</b> table › KEY ID column</div>
       </div>
       <div class="cr-item">
-        <div class="cr-label">③ Issuer ID</div>
+        <div class="cr-label" data-en="③ Private Key (.p8 file)" data-tr="③ Private Key (.p8 dosyası)">③ Private Key (.p8 file)</div>
         <div class="cr-desc"
-             data-en="Navigate to Users and Access → Integrations tab → App Store Connect API. The Issuer ID is displayed at the top with a Copy button."
-             data-tr="Users and Access → Integrations sekmesi → App Store Connect API sayfasına gidin. Issuer ID en üstte Copy butonuyla gösterilir.">Navigate to Users and Access → Integrations tab → App Store Connect API. The Issuer ID is displayed at the top with a Copy button.</div>
-        <div class="cr-path"><b>Users and Access</b> › Integrations › App Store Connect API › Issuer ID</div>
+             data-en='In the Team Keys table, click "Download API Key" next to your key. This downloads a .p8 file. Important: this file can only be downloaded once.'
+             data-tr='Team Keys tablosunda, key\'inizin yanındaki "Download API Key"e tıklayın. Bu bir .p8 dosyası indirir. Önemli: bu dosya yalnızca bir kez indirilebilir.'>In the Team Keys table, click "Download API Key" next to your key. This downloads a .p8 file. Important: this file can only be downloaded once.</div>
+        <div class="cr-path"><b>Team Keys</b> table › Download API Key</div>
       </div>
       <div class="cr-item">
         <div class="cr-label">④ Vendor Number</div>
         <div class="cr-desc"
-             data-en="Go to Payments and Financial Reports. Your Vendor Number is shown in the top-left corner, right below your name."
-             data-tr="Payments and Financial Reports sayfasına gidin. Vendor Number, adınızın hemen altında sol üst köşede gösterilir.">Go to Payments and Financial Reports. Your Vendor Number is shown in the top-left corner, right below your name.</div>
+             data-en="Go to Payments and Financial Reports (separate page). Your Vendor Number is shown in the top-left corner, right below your name."
+             data-tr="Payments and Financial Reports sayfasına gidin (ayrı sayfa). Vendor Number, adınızın hemen altında sol üst köşede gösterilir.">Go to Payments and Financial Reports (separate page). Your Vendor Number is shown in the top-left corner, right below your name.</div>
         <div class="cr-path"><b>Payments and Financial Reports</b> › top-left › Vendor #</div>
       </div>
     </div>
 
     <div class="wrn">
-      <span data-en="⚠️ The .p8 file can only be downloaded once. If you lose it, you'll need to revoke the current key and generate a new one."
-            data-tr="⚠️ .p8 dosyası yalnızca bir kez indirilebilir. Kaybederseniz mevcut key'i iptal edip yenisini oluşturmanız gerekir.">⚠️ The .p8 file can only be downloaded once. If you lose it, you'll need to revoke the current key and generate a new one.</span>
+      <span data-en="⚠️ The .p8 file can only be downloaded once. If you lose it, you'll need to revoke the current key and generate a new one from Team Keys."
+            data-tr="⚠️ .p8 dosyası yalnızca bir kez indirilebilir. Kaybederseniz Team Keys'ten mevcut key'i iptal edip yenisini oluşturmanız gerekir.">⚠️ The .p8 file can only be downloaded once. If you lose it, you'll need to revoke the current key and generate a new one from Team Keys.</span>
     </div>
   </div>
 
@@ -165,6 +167,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',syste
         <p data-en="Open AppConsol on your iPhone → Settings → API Setup. Paste your Issuer ID, Key ID, Private Key content, and Vendor Number into the corresponding fields."
            data-tr="iPhone'unuzda AppConsol'u açın → Ayarlar → API Kurulumu. Issuer ID, Key ID, Private Key içeriği ve Vendor Number'ı ilgili alanlara yapıştırın.">Open AppConsol on your iPhone → Settings → API Setup. Paste your Issuer ID, Key ID, Private Key content, and Vendor Number into the corresponding fields.</p>
       </div>
+    </div>
+    <div class="tip">
+      <strong data-en="📋 How to paste the .p8 file" data-tr="📋 .p8 dosyasını nasıl yapıştırırsınız">📋 How to paste the .p8 file</strong>
+      <span data-en="Open the .p8 file with any text editor (Notes, TextEdit, etc.), select all the content including the -----BEGIN/END PRIVATE KEY----- lines, copy it, and paste into the Private Key field in AppConsol."
+            data-tr=".p8 dosyasını herhangi bir metin düzenleyiciyle açın (Notlar, TextEdit vb.), -----BEGIN/END PRIVATE KEY----- satırları dahil tüm içeriği seçin, kopyalayın ve AppConsol'daki Private Key alanına yapıştırın.">Open the .p8 file with any text editor (Notes, TextEdit, etc.), select all the content including the -----BEGIN/END PRIVATE KEY----- lines, copy it, and paste into the Private Key field in AppConsol.</span>
     </div>
     <div class="tip">
       <strong data-en="🔒 Your data stays on your device" data-tr="🔒 Verileriniz cihazınızda kalır">🔒 Your data stays on your device</strong>
